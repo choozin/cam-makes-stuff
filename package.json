@@ -1,0 +1,37 @@
+{
+  "name": "cam-makes-stuff",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@fontsource/aldrich": "^4.5.7",
+    "@fontsource/codystar": "^4.5.10",
+    "@fontsource/covered-by-your-grace": "^4.5.9",
+    "@fontsource/gugi": "^4.5.10",
+    "@fontsource/im-fell-dw-pica-sc": "^4.5.8",
+    "@fontsource/marcellus-sc": "^4.5.11",
+    "@fontsource/monofett": "^4.5.9",
+    "@fontsource/odibee-sans": "^4.5.10",
+    "@fontsource/orbitron": "^4.5.10",
+    "@fontsource/permanent-marker": "^4.5.7",
+    "@fontsource/rubik-dirt": "^4.5.0",
+    "@fontsource/rubik-gemstones": "^4.5.0",
+    "@fontsource/shadows-into-light": "^4.5.9",
+    "@fontsource/silkscreen": "^4.5.0",
+    "@fontsource/special-elite": "^4.5.8",
+    "@svgr/webpack": "^6.5.1",
+    "framer-motion": "^7.6.18",
+    "next": "13.0.6",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "eslint": "8.29.0",
+    "eslint-config-next": "13.0.6"
+  }
+}
