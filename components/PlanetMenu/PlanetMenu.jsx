@@ -16,13 +16,13 @@ import SpaceShip from "../../public/svg/spaceship1.svg";
 
 const Planet = ({ position, planet, title, font, setPlanet }) => {
   const variants = {
-    front: { x: "0", y: "5vh", zIndex: "90", scale: 1.7 },
-    frontLeft: { x: "-30vw", y: "-4vh", zIndex: "85", scale: 0.8 },
-    left: { x: "-20vw", y: "-12vh", zIndex: "80", scale: 0.5 },
-    backLeft: { x: "-8vw", y: "-15vh", zIndex: "70", scale: 0.3 },
-    backRight: { x: "8vw", y: "-15vh", zIndex: "70", scale: 0.3 },
-    right: { x: "20vw", y: "-12vh", zIndex: "80", scale: 0.5 },
-    frontRight: { x: "30vw", y: "-4vh", zIndex: "85", scale: 0.8 },
+    front: { x: "0", y: "4vh", zIndex: "90", scale: 1.7 },
+    frontLeft: { x: "-24vw", y: "-3vh", zIndex: "85", scale: 0.8 },
+    left: { x: "-16vw", y: "-9vh", zIndex: "80", scale: 0.5 },
+    backLeft: { x: "-8vw", y: "-12vh", zIndex: "70", scale: 0.3 },
+    backRight: { x: "8vw", y: "-12vh", zIndex: "70", scale: 0.3 },
+    right: { x: "16vw", y: "-9vh", zIndex: "80", scale: 0.5 },
+    frontRight: { x: "24vw", y: "-3vh", zIndex: "85", scale: 0.8 },
   };
 
   return (
@@ -86,32 +86,38 @@ const Planet = ({ position, planet, title, font, setPlanet }) => {
           mass: "1",
           damping: "7",
         }}
-        whileHover={{ scale: 2 }}
-        whileTap={{ scale: 1.9 }}
+        whileHover={{ scale: 1.9 }}
+        whileTap={{ scale: 1.8 }}
         style={{}}
       >
         {(planet === "Earth" && (
-          <PlanetEarth style={{ width: "128px", height: "128px" }} />
+          <PlanetEarth style={{ width: "100px", height: "100px" }} />
         )) ||
           (planet === "Mars" && (
-            <Mars style={{ width: "128px", height: "128px" }} />
+            <Mars style={{ width: "100px", height: "100px" }} />
           )) ||
           (planet === "Saturn" && (
-            <div style={{ width: "128px", height: "128px" }}>
+            <div style={{ width: "100px", height: "100px" }}>
               <Saturn style={{ transform: "scale(1.8)" }} />
             </div>
           )) ||
           (planet === "Moon" && (
-            <Moon style={{ width: "128px", height: "128px" }} />
+            <Moon style={{ width: "100px", height: "100px" }} />
           )) ||
           (planet === "Asteroid" && (
-            <Asteroid style={{ width: "128px", height: "128px" }} />
+            <div style={{ width: "100px", height: "100px" }} >
+              <Asteroid style={{ transform: "scale(1.1)" }}  />
+            </div>
           )) ||
           (planet === "Comet" && (
-            <Comet style={{ width: "128px", height: "128px" }} />
+            <div style={{ width: "100px", height: "100px" }} >
+              <Comet style={{ transform: "scale(0.9)" }}  />
+            </div>
           )) ||
           (planet === "SpaceStation" && (
-            <SpaceStation style={{ width: "128px", height: "128px" }} />
+            <div style={{ width: "100px", height: "100px" }} >
+              <SpaceStation style={{ transform: "scale(1.1)" }} />
+            </div>
           ))}
         {position === 0 && (
           <motion.div
@@ -126,7 +132,7 @@ const Planet = ({ position, planet, title, font, setPlanet }) => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.17 }}
           >
-            <span
+            <motion.span
               style={{
                 color: "#FFF",
                 fontFamily: font,
@@ -135,7 +141,7 @@ const Planet = ({ position, planet, title, font, setPlanet }) => {
               }}
             >
               {title}
-            </span>
+            </motion.span>
           </motion.div>
         )}
       </motion.div>
@@ -319,6 +325,7 @@ const PlanetMenu = () => {
           display: "flex",
           justifyContent: "space-between",
           opacity: 0,
+          margin: '0 auto',
         }}
       >
         <motion.button style={{ width: "25vw" }} onClick={() => rotateLeft()}>

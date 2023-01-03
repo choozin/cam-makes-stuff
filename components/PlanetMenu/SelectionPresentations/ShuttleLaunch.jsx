@@ -134,8 +134,8 @@ const ShuttleLaunch = ({ title, itemTitles, font, urls, setPlanet }) => {
         <div
           style={{
             position: "absolute",
-            top: 0,
-            left: 0,
+            top: '0.5rem',
+            left: '0.5rem',
             zIndex: "100",
             fontFamily: font,
           }}
@@ -144,7 +144,7 @@ const ShuttleLaunch = ({ title, itemTitles, font, urls, setPlanet }) => {
             onClick={() => setPlanet("None")}
           >
             <motion.span
-              style={{ color: "white", fontSize: "1.7rem", boxShadow: '0 0 1rem black', background: 'rgba(0,0,0,0.4 ', padding: '0 0.4rem' }}
+              style={{ color: "white", fontSize: "1.7rem", boxShadow: '0 0 1rem black', background: 'rgba(0,0,0,0.4 ', padding: '0 0.4rem', cursor: 'pointer' }}
               whileHover={{ color: "#FD8", scale: 1.05 }}
               whileTap={{ color: "#FD8", scale: 1.1 }}
             >

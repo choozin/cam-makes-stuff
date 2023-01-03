@@ -14,9 +14,10 @@ const Item = ({ itemTitle, font }) => {
       fontFamily: font,
       fontSize: '1.7rem',
       padding: '1rem',
-      textShadow: '0rem 0rem 1rem black, 0rem 0rem 1rem black, 0rem 0rem 1rem black, 0rem 0rem 1rem black'
+      textShadow: '0rem 0rem 1rem black, 0rem 0rem 1rem black, 0rem 0rem 1rem black, 0rem 0rem 1rem black',
+      cursor: 'pointer',
     }}
-    whileHover={'hovered'}
+    whileHover={{ y: -3, color: '#FD8'}}
     whileTap={{ scale: 1.1, color: '#FD8' }}
     >
       {itemTitle}
