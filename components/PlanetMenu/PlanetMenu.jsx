@@ -98,24 +98,26 @@ const Planet = ({ position, planet, title, font, setPlanet }) => {
           )) ||
           (planet === "Saturn" && (
             <div style={{ width: "100px", height: "100px" }}>
-              <Saturn style={{ transform: "scale(1.8)" }} />
+              <Saturn
+                style={{ transform: "scale(1.6)", marginLeft: "-15px" }}
+              />
             </div>
           )) ||
           (planet === "Moon" && (
             <Moon style={{ width: "100px", height: "100px" }} />
           )) ||
           (planet === "Asteroid" && (
-            <div style={{ width: "100px", height: "100px" }} >
-              <Asteroid style={{ transform: "scale(1.1)" }}  />
+            <div style={{ width: "100px", height: "100px" }}>
+              <Asteroid style={{ transform: "scale(1.1)" }} />
             </div>
           )) ||
           (planet === "Comet" && (
-            <div style={{ width: "100px", height: "100px" }} >
-              <Comet style={{ transform: "scale(0.9)" }}  />
+            <div style={{ width: "100px", height: "100px" }}>
+              <Comet style={{ transform: "scale(0.9)" }} />
             </div>
           )) ||
           (planet === "SpaceStation" && (
-            <div style={{ width: "100px", height: "100px" }} >
+            <div style={{ width: "100px", height: "100px" }}>
               <SpaceStation style={{ transform: "scale(1.1)" }} />
             </div>
           ))}
@@ -179,9 +181,30 @@ const PlanetMenu = () => {
     setSpaceStationPos(spaceStationPos > 0 ? spaceStationPos - 1 : 6);
   };
 
-  const learnTitles = ['A Breif History of Cam', 'Technical Skills', 'Interests & Hobbies', 'Work Experience']
-  const gamesTitles = ['Video Games', 'Educational / Professional Games', 'Board / Card Games']
-  const contactTitles = ['Via Fiverr', 'Via Upwork', 'Via Email', ]
+  const learnTitles = [
+    "A Breif History of Cam",
+    "Technical Skills",
+    "Interests & Hobbies",
+    "Work Experience",
+  ];
+  const calcTitles = [
+
+  ];
+  const quizTitles = [
+
+  ];
+  const landingTitles = [
+
+  ];
+  const appsTitles = [
+
+  ];
+  const gamesTitles = [
+    "Video Games",
+    "Educational / Professional Games",
+    "Board / Card Games",
+  ];
+  const contactTitles = ["Via Fiverr", "Via Upwork", "Via Email"];
 
   const buttonStyle = {
     fontSize: "3rem",
@@ -197,7 +220,10 @@ const PlanetMenu = () => {
     <div style={{ overflow: "hidden", width: "100%", height: "100%" }}>
       <AnimatePresence>
         {selectedPlanet === "Earth" && (
-          <motion.div exit={{ opacity: 0 }} transition={{ delay: 0.25, duration: 1 }}>
+          <motion.div
+            exit={{ opacity: 0 }}
+            transition={{ delay: 0.25, duration: 1 }}
+          >
             <ShuttleLaunch
               title="Learn About Cam"
               itemTitles={learnTitles}
@@ -206,21 +232,83 @@ const PlanetMenu = () => {
             />
           </motion.div>
         )}
+        {selectedPlanet === "Moon" && (
+          <motion.div
+            exit={{ opacity: 0 }}
+            transition={{ delay: 0.25, duration: 1 }}
+          >
+            <ShuttleLaunch
+              title="Calculators & Forms"
+              itemTitles={calcTitles}
+              font="Orbitron"
+              setPlanet={setSelectedPlanet}
+            />
+          </motion.div>
+        )}
+        {selectedPlanet === "Mars" && (
+          <motion.div
+            exit={{ opacity: 0 }}
+            transition={{ delay: 0.25, duration: 1 }}
+          >
+            <ShuttleLaunch
+              title="Quizzes & Charting"
+              itemTitles={quizTitles}
+              font="Codystar"
+              setPlanet={setSelectedPlanet}
+            />
+          </motion.div>
+        )}
+        {selectedPlanet === "Saturn" && (
+          <motion.div
+            exit={{ opacity: 0 }}
+            transition={{ delay: 0.25, duration: 1 }}
+          >
+            <ShuttleLaunch
+              title="Landing Pages"
+              itemTitles={landingTitles}
+              font="Im Fell DW Pica SC"
+              setPlanet={setSelectedPlanet}
+            />
+          </motion.div>
+        )}
+        {selectedPlanet === "Asteroid" && (
+          <motion.div
+            exit={{ opacity: 0 }}
+            transition={{ delay: 0.25, duration: 1 }}
+          >
+            <ShuttleLaunch
+              title="Custom Apps"
+              itemTitles={appsTitles}
+              font="Permanent Marker"
+              setPlanet={setSelectedPlanet}
+            />
+          </motion.div>
+        )}
         {selectedPlanet === "Comet" && (
-          <ShuttleLaunch
-            title="Games"
-            itemTitles={gamesTitles}
-            font="Silkscreen"
-            setPlanet={setSelectedPlanet}
-          />
+          <motion.div
+            exit={{ opacity: 0 }}
+            transition={{ delay: 0.25, duration: 1 }}
+          >
+            <ShuttleLaunch
+              title="Games"
+              itemTitles={gamesTitles}
+              font="Silkscreen"
+              setPlanet={setSelectedPlanet}
+            />
+          </motion.div>
         )}
         {selectedPlanet === "SpaceStation" && (
-          <ShuttleLaunch
-            title="Contact Cam"
-            itemTitles={contactTitles}
-            font="Special Elite"
-            setPlanet={setSelectedPlanet}
-          />
+          <motion.div
+            exit={{ opacity: 0 }}
+            transition={{ delay: 0.25, duration: 1 }}
+          >
+            <ShuttleLaunch
+              title="Contact Cam"
+              itemTitles={contactTitles}
+              font="Special Elite"
+              setPlanet={setSelectedPlanet}
+            />
+          </motion.div>
         )}
       </AnimatePresence>
 
@@ -228,10 +316,10 @@ const PlanetMenu = () => {
         <Sun
           style={{
             position: "absolute",
-            left: "45vw",
-            top: "33%",
-            width: "10vw",
-            height: "10vw",
+            left: "43vw",
+            top: "38vh",
+            width: "14vw",
+            height: "14vw",
             zIndex: "75",
           }}
         />
@@ -325,7 +413,7 @@ const PlanetMenu = () => {
           display: "flex",
           justifyContent: "space-between",
           opacity: 0,
-          margin: '0 auto',
+          margin: "0 auto",
         }}
       >
         <motion.button style={{ width: "25vw" }} onClick={() => rotateLeft()}>
