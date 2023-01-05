@@ -3,6 +3,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import MoonCycle from "../MoonCycle/MoonCycle";
 
+import CamMakesStuffLogo from '../../public/img/cammakesstuff.svg'
+
 const WhiteBackground = ({ toggleCentered }) => {
   const [isOpen, setIsOpen] = useState(true);
 
@@ -92,13 +94,7 @@ const Logo = () => {
     >
       <WhiteBackground toggleCentered={() => setIsCentered()} />
       <motion.div style={{ zIndex: '100', width: '350px', height: '350px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', }} whileHover={{ scale: !isCentered && 1.05 }} whileTap={{ scale: !isCentered && 0.9 }}>
-        <Image
-          style={{ zIndex: "100" }}
-          src="/img/cammakesstuff.png"
-          alt="Cam Makes Stuff Logo"
-          width={300}
-          height={300}
-        />
+        <CamMakesStuffLogo/>
       </motion.div>
     </motion.div>
   );

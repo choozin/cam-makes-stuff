@@ -2,6 +2,8 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 
+import dynamic from 'next/dynamic'
+
 import StarrySky from "../components/Starfield/StarrySky";
 import Logo from "../components/Logo/Logo";
 import PlanetMenu from "../components/PlanetMenu/PlanetMenu";
@@ -26,6 +28,14 @@ import "@fontsource/covered-by-your-grace";//
 import "@fontsource/orbitron";//
 
 
+const DynamicPlanetMenu = dynamic(() => import('../components/PlanetMenu/PlanetMenu'), {
+  loading: () => 'Loading...',
+})
+
+const DynamicStarrySky = dynamic(() => import('../components/Starfield/StarrySky'), {
+  loading: () => 'Loading...',
+})
+
 export default function Home() {
   return (
     <div
@@ -42,9 +52,9 @@ export default function Home() {
       </Head>
 
       <Logo />
-      <PlanetMenu/>
+      <DynamicPlanetMenu/>
 
-      <StarrySky />
+      <DynamicStarrySky />
     </div>
   );
 }
