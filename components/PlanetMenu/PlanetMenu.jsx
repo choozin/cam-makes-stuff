@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+import Swipable from "../Swipable/Swipable";
+
 import ShuttleLaunch from "../../components/PlanetMenu/SelectionPresentations/ShuttleLaunch";
 
 import PlanetEarth from "../../public/svg/planet-earth.svg";
@@ -188,17 +190,17 @@ const PlanetMenu = () => {
     "Work Experience",
   ];
   const calcTitles = [
-
+    "Automatic Quote Generators",
+    "Inventory Management Tools",
+    "Digitized Forms",
   ];
-  const quizTitles = [
-
-  ];
+  const quizTitles = ["For Data Collection", "For Automated Evaluations"];
   const landingTitles = [
-
+    "What is a Landing Page?",
+    "Types of Landing Pages",
+    "Complete Websites",
   ];
-  const appsTitles = [
-
-  ];
+  const appsTitles = [];
   const gamesTitles = [
     "Video Games",
     "Educational / Professional Games",
@@ -312,67 +314,72 @@ const PlanetMenu = () => {
         )}
       </AnimatePresence>
 
-      <div>
-        <Sun
-          style={{
-            position: "absolute",
-            left: "43vw",
-            top: "38vh",
-            width: "14vw",
-            height: "14vw",
-            zIndex: "75",
-          }}
-        />
-        <Planet
-          planet="Earth"
-          position={earthPos}
-          title="Learn About Cam"
-          font="Marcellus SC"
-          setPlanet={setSelectedPlanet}
-        />
-        <Planet
-          planet="Moon"
-          position={moonPos}
-          title="Calculators & Forms"
-          font="Orbitron"
-          setPlanet={setSelectedPlanet}
-        />
-        <Planet
-          planet="Mars"
-          position={marsPos}
-          title="Quizzes & Charting"
-          font="Codystar"
-          setPlanet={setSelectedPlanet}
-        />
-        <Planet
-          planet="Saturn"
-          position={saturnPos}
-          title="Landing Pages"
-          font="Im Fell DW Pica SC"
-          setPlanet={setSelectedPlanet}
-        />
-        <Planet
-          planet="Asteroid"
-          position={asteroidPos}
-          title="Custom Apps"
-          font="Permanent Marker"
-          setPlanet={setSelectedPlanet}
-        />
-        <Planet
-          planet="Comet"
-          position={cometPos}
-          title="Games"
-          font="Silkscreen"
-          setPlanet={setSelectedPlanet}
-        />
-        <Planet
-          planet="SpaceStation"
-          position={spaceStationPos}
-          title="Contact Cam"
-          font="Special Elite"
-          setPlanet={setSelectedPlanet}
-        />
-      </div>
+      <Swipable
+        onSwipeLeft={() => rotateLeft()}
+        onSwipeRight={() => rotateRight()}
+      >
+        <div>
+          <Sun
+            style={{
+              position: "absolute",
+              left: "43vw",
+              top: "38vh",
+              width: "14vw",
+              height: "14vw",
+              zIndex: "75",
+            }}
+          />
+          <Planet
+            planet="Earth"
+            position={earthPos}
+            title="Learn About Cam"
+            font="Marcellus SC"
+            setPlanet={setSelectedPlanet}
+          />
+          <Planet
+            planet="Moon"
+            position={moonPos}
+            title="Calculators & Forms"
+            font="Orbitron"
+            setPlanet={setSelectedPlanet}
+          />
+          <Planet
+            planet="Mars"
+            position={marsPos}
+            title="Quizzes & Charting"
+            font="Codystar"
+            setPlanet={setSelectedPlanet}
+          />
+          <Planet
+            planet="Saturn"
+            position={saturnPos}
+            title="Landing Pages"
+            font="Im Fell DW Pica SC"
+            setPlanet={setSelectedPlanet}
+          />
+          <Planet
+            planet="Asteroid"
+            position={asteroidPos}
+            title="Custom Apps"
+            font="Permanent Marker"
+            setPlanet={setSelectedPlanet}
+          />
+          <Planet
+            planet="Comet"
+            position={cometPos}
+            title="Games"
+            font="Silkscreen"
+            setPlanet={setSelectedPlanet}
+          />
+          <Planet
+            planet="SpaceStation"
+            position={spaceStationPos}
+            title="Contact Cam"
+            font="Special Elite"
+            setPlanet={setSelectedPlanet}
+          />
+        </div>
+      </Swipable>
       <div
         style={{
           position: "absolute",
@@ -403,7 +410,7 @@ const PlanetMenu = () => {
           &#8594;
         </motion.button>
       </div>
-      <div
+      {/*<div
         style={{
           position: "absolute",
           zIndex: "89",
@@ -416,13 +423,12 @@ const PlanetMenu = () => {
           margin: "0 auto",
         }}
       >
-        <motion.button style={{ width: "25vw" }} onClick={() => rotateLeft()}>
-          &#8592;
-        </motion.button>
-        <motion.button style={{ width: "25vw" }} onClick={() => rotateRight()}>
-          &#8594;
-        </motion.button>
-      </div>
+        <motion.button style={{ width: "25vw" }} onClick={() => rotateLeft()} />
+        <motion.button
+          style={{ width: "25vw" }}
+          onClick={() => rotateRight()}
+        />
+      </div>*/}
       <div
         style={{
           position: "absolute",
