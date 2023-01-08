@@ -219,7 +219,9 @@ const PlanetMenu = () => {
   };
 
   return (
-    <div style={{ overflow: "hidden", width: "100%", height: "100%" }}>
+    <motion.div style={{ overflow: "hidden", width: "100%", height: "100%" }}
+    onPan={(event, info) => {info.delta.x > 8 ? rotateLeft() : info.delta.x < -8 ? rotateRight() : null}}
+    id='swipable'>
       <AnimatePresence>
         {selectedPlanet === "Earth" && (
           <motion.div
@@ -314,10 +316,6 @@ const PlanetMenu = () => {
         )}
       </AnimatePresence>
 
-      <Swipable
-        onSwipeLeft={() => rotateLeft()}
-        onSwipeRight={() => rotateRight()}
-      >
         <div>
           <Sun
             style={{
@@ -379,7 +377,7 @@ const PlanetMenu = () => {
             setPlanet={setSelectedPlanet}
           />
         </div>
-      </Swipable>
+      
       <div
         style={{
           position: "absolute",
@@ -479,7 +477,7 @@ const PlanetMenu = () => {
           \
         </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

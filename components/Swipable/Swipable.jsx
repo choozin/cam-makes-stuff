@@ -39,6 +39,7 @@ class Swipeable extends React.Component {
       <div
         onTouchStart={this.handleTouchStart}
         onTouchEnd={this.handleTouchEnd}
+        id='swipable'
       >
         {this.props.children}
       </div>
