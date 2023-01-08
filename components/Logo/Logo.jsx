@@ -34,8 +34,8 @@ const WhiteBackground = ({ toggleCentered }) => {
         backgroundColor: "#004",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-around",
         alignItems: "center",
+        paddingTop: '10vh',
       }}
     >
       <MoonCycle style={{ width: "128px", height: "128px" }} />
@@ -60,6 +60,10 @@ const WhiteBackground = ({ toggleCentered }) => {
           padding: "0px 10px 4px 10px",
           borderRadius: "1rem",
           fontFamily: "Silkscreen",
+          cursor: 'pointer',
+          userSelect: 'none',
+          position: 'absolute',
+          bottom: '20vh',
         }}
       >
         Enter

@@ -21,6 +21,7 @@ const MenuItem = ({ itemTitle, itemFont, url }) => {
         color: "white",
         textAlign: "center",
         verticalAlign: "middle",
+        textShadow: '0 0 1rem black, 0 0 1rem black, 0 0 1rem black, 0 0 1rem black, ',
       }}
       variants={item}
     >
@@ -135,12 +136,13 @@ const ShuttleLaunch = ({ title, itemTitles, font, urls, setPlanet }) => {
             <span
               style={{
                 fontSize: "10vw",
-                color: "rgba(0,0,0,0.0",
+                color: font === 'Codystar' ? "rgba(216,216,216,0.2" : 'rgba(0,0,0,0)',
                 textShadow: "0 0 1vw #AAA",
                 fontWeight: "bold",
                 fontFamily: font,
                 transform: "rotate(-20deg)",
                 cursor: "pointer",
+                userSelect: 'none',
               }}
             >
               {title}
@@ -171,6 +173,7 @@ const ShuttleLaunch = ({ title, itemTitles, font, urls, setPlanet }) => {
                 background: "rgba(0,0,0,0.4 ",
                 padding: "0 0.4rem",
                 cursor: "pointer",
+                userSelect: 'none',
               }}
               whileHover={{ color: "#FD8", scale: 1.05 }}
               whileTap={{ color: "#FD8", scale: 1.1 }}

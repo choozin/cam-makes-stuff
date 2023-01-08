@@ -130,6 +130,7 @@ const Planet = ({ position, planet, title, font, setPlanet }) => {
                 textShadow: "0 0 0.5rem #000, 0 0 0.5rem #000",
                 fontSize: "1rem",
                 cursor: "pointer",
+                userSelect: 'none',
               }}
             >
               {title}
