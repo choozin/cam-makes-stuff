@@ -320,7 +320,7 @@ const PlanetMenu = () => {
             zIndex: "75",
           }}
         />
-        <motion.div drag='x' dragSnapToOrigin dragConstraints={{ left: 10, right: 10 }} dragElastic={0.1} onDrag={(event, info) => info.delta.x > 20 ? rotateLeft() : info.delta.x < -20 ? rotateRight() : null}>
+        <motion.div drag='x' dragSnapToOrigin dragConstraints={{ left: 20, right: 20 }} dragElastic={0.1} onDragEnd={(event, info) => info.offset.x > 30 ? rotateLeft() : info.offset.x < -30 ? rotateRight() : null}>
         <Planet
           planet="Earth"
           position={earthPos}
@@ -329,6 +329,7 @@ const PlanetMenu = () => {
           setPlanet={setSelectedPlanet}
         />
         </motion.div>
+        <motion.div drag='x' dragSnapToOrigin dragConstraints={{ left: 20, right: 20 }} dragElastic={0.1} onDragEnd={(event, info) => info.offset.x > 30 ? rotateLeft() : info.offset.x < -30 ? rotateRight() : null}>
         <Planet
           planet="Moon"
           position={moonPos}
@@ -336,6 +337,8 @@ const PlanetMenu = () => {
           font="Orbitron"
           setPlanet={setSelectedPlanet}
         />
+        </motion.div>
+        <motion.div drag='x' dragSnapToOrigin dragConstraints={{ left: 20, right: 20 }} dragElastic={0.1} onDragEnd={(event, info) => info.offset.x > 30 ? rotateLeft() : info.offset.x < -30 ? rotateRight() : null}>
         <Planet
           planet="Mars"
           position={marsPos}
@@ -343,6 +346,8 @@ const PlanetMenu = () => {
           font="Codystar"
           setPlanet={setSelectedPlanet}
         />
+        </motion.div>
+        <motion.div drag='x' dragSnapToOrigin dragConstraints={{ left: 20, right: 20 }} dragElastic={0.1} onDragEnd={(event, info) => info.offset.x > 30 ? rotateLeft() : info.offset.x < -30 ? rotateRight() : null}>
         <Planet
           planet="Saturn"
           position={saturnPos}
@@ -350,6 +355,9 @@ const PlanetMenu = () => {
           font="Im Fell DW Pica SC"
           setPlanet={setSelectedPlanet}
         />
+        </motion.div>
+        <motion.div drag='x' dragSnapToOrigin dragConstraints={{ left: 20, right: 20 }} dragElastic={0.1} onDragEnd={(event, info) => info.offset.x > 30 ? rotateLeft() : info.offset.x < -30 ? rotateRight() : null}>
+        
         <Planet
           planet="Asteroid"
           position={asteroidPos}
@@ -357,6 +365,9 @@ const PlanetMenu = () => {
           font="Permanent Marker"
           setPlanet={setSelectedPlanet}
         />
+        </motion.div>
+        <motion.div drag='x' dragSnapToOrigin dragConstraints={{ left: 20, right: 20 }} dragElastic={0.1} onDragEnd={(event, info) => info.offset.x > 30 ? rotateLeft() : info.offset.x < -30 ? rotateRight() : null}>
+        
         <Planet
           planet="Comet"
           position={cometPos}
@@ -364,6 +375,9 @@ const PlanetMenu = () => {
           font="Silkscreen"
           setPlanet={setSelectedPlanet}
         />
+        </motion.div>
+        <motion.div drag='x' dragSnapToOrigin dragConstraints={{ left: 20, right: 20 }} dragElastic={0.1} onDragEnd={(event, info) => info.offset.x > 30 ? rotateLeft() : info.offset.x < -30 ? rotateRight() : null}>
+        
         <Planet
           planet="SpaceStation"
           position={spaceStationPos}
@@ -371,6 +385,7 @@ const PlanetMenu = () => {
           font="Special Elite"
           setPlanet={setSelectedPlanet}
         />
+        </motion.div>
       </div>
       <div
         style={{
