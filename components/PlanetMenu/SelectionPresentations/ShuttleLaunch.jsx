@@ -120,10 +120,32 @@ const ShuttleLaunch = ({ title, itemTitles, font, urls, setPlanet }) => {
             flexDirection: "column",
           }}
         >
-        <div style={{ zIndex: '-10', position: 'absolute', width: '100%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-around', alignItems: 'center', }}>
-            <span style={{ fontSize: '10vw', color: 'rgba(0,0,0,0.0', textShadow: '0 0 1vw #AAA', fontWeight: 'bold', fontFamily: font, transform: 'rotate(-20deg)'}}>{title}</span>
-            
-        </div>
+          <div
+            style={{
+              zIndex: "-10",
+              position: "absolute",
+              width: "100%",
+              height: "100%",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "space-around",
+              alignItems: "center",
+            }}
+          >
+            <span
+              style={{
+                fontSize: "10vw",
+                color: "rgba(0,0,0,0.0",
+                textShadow: "0 0 1vw #AAA",
+                fontWeight: "bold",
+                fontFamily: font,
+                transform: "rotate(-20deg)",
+                cursor: "pointer",
+              }}
+            >
+              {title}
+            </span>
+          </div>
           <Items
             title={title}
             itemTitles={itemTitles}
@@ -134,17 +156,22 @@ const ShuttleLaunch = ({ title, itemTitles, font, urls, setPlanet }) => {
         <div
           style={{
             position: "absolute",
-            top: '0.5rem',
-            left: '0.5rem',
+            top: "0.5rem",
+            left: "0.5rem",
             zIndex: "100",
             fontFamily: font,
           }}
         >
-          <div
-            onClick={() => setPlanet("None")}
-          >
+          <div onClick={() => setPlanet("None")}>
             <motion.span
-              style={{ color: "white", fontSize: "1.7rem", boxShadow: '0 0 1rem black', background: 'rgba(0,0,0,0.4 ', padding: '0 0.4rem', cursor: 'pointer' }}
+              style={{
+                color: "white",
+                fontSize: "1.7rem",
+                boxShadow: "0 0 1rem black",
+                background: "rgba(0,0,0,0.4 ",
+                padding: "0 0.4rem",
+                cursor: "pointer",
+              }}
               whileHover={{ color: "#FD8", scale: 1.05 }}
               whileTap={{ color: "#FD8", scale: 1.1 }}
             >

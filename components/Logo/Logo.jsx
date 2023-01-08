@@ -45,18 +45,18 @@ const WhiteBackground = ({ toggleCentered }) => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, spring: 0.1 }}
         whileHover={{
-          scale: 1.2,
+          scale: 1.1,
           transition: { duration: 0.5 },
+          color: '#FD8'
         }}
-        whileTap={{ scale: 0.8, transition: { duration: 0.1 } }}
+        whileTap={{ scale: 0.1, transition: { duration: 2 } }}
         onClick={() => enterBtnClick()}
         style={{
           zIndex: 100,
           backgroundColor: "black",
           color: "white",
           fontWeight: "bold",
-          fontSize: "2rem",
-          marginTop: "20vh",
+          fontSize: "8vh",
           padding: "0px 10px 4px 10px",
           borderRadius: "1rem",
           fontFamily: "Silkscreen",
@@ -93,8 +93,8 @@ const Logo = () => {
       transition={{ duration: 1, delay: 1, spring: 10 }}
     >
       <WhiteBackground toggleCentered={() => setIsCentered()} />
-      <motion.div style={{ zIndex: '100', width: '350px', height: '350px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', }} whileHover={{ scale: !isCentered && 1.05 }} whileTap={{ scale: !isCentered && 0.9 }}>
-        <CamMakesStuffLogo/>
+      <motion.div style={{ zIndex: '100', width: '280px', height: '280px', maxHeight: '50vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', }} whileHover={{ scale: !isCentered && 1.05 }} whileTap={{ scale: !isCentered && 0.9 }}>
+        <CamMakesStuffLogo />
       </motion.div>
     </motion.div>
   );

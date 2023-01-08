@@ -25,8 +25,6 @@ const Planet = ({ position, planet, title, font, setPlanet }) => {
     frontRight: { x: "24vw", y: "-3vh", zIndex: "85", scale: 0.8 },
   };
 
-  const [xPos, setXPos] = useState(null);
-
   return (
     <div
       style={{
@@ -80,7 +78,6 @@ const Planet = ({ position, planet, title, font, setPlanet }) => {
           damping: "7",
         }}
         whileHover={{ scale: 1.9 }}
-        style={{ border: 'solid red 1px'}}
       >
         {(planet === "Earth" && (
           <PlanetEarth style={{ width: "100px", height: "100px" }} />
@@ -91,7 +88,7 @@ const Planet = ({ position, planet, title, font, setPlanet }) => {
           (planet === "Saturn" && (
             <div style={{ width: "100px", height: "100px" }}>
               <Saturn
-                style={{ transform: "scale(1.6)", marginLeft: "-15px" }}
+                style={{ transform: "scale(1.45)", marginLeft: "-15px", marginTop: '-15px' }}
               />
             </div>
           )) ||
@@ -100,12 +97,12 @@ const Planet = ({ position, planet, title, font, setPlanet }) => {
           )) ||
           (planet === "Asteroid" && (
             <div style={{ width: "100px", height: "100px" }}>
-              <Asteroid style={{ transform: "scale(1.1)" }} />
+              <Asteroid style={{ transform: "scale(1)" }} />
             </div>
           )) ||
           (planet === "Comet" && (
             <div style={{ width: "100px", height: "100px" }}>
-              <Comet style={{ transform: "scale(0.9)" }} />
+              <Comet style={{ transform: "scale(0.9)", marginTop: '-25px' }} />
             </div>
           )) ||
           (planet === "SpaceStation" && (
@@ -132,6 +129,7 @@ const Planet = ({ position, planet, title, font, setPlanet }) => {
                 fontFamily: font,
                 textShadow: "0 0 0.5rem #000, 0 0 0.5rem #000",
                 fontSize: "1rem",
+                cursor: "pointer",
               }}
             >
               {title}
@@ -446,8 +444,8 @@ const PlanetMenu = () => {
         }}
       >
         <motion.div
-          initial={{ x: "-10vw", y: "10vh" }}
-          animate={{ x: "110vw", y: "80vh" }}
+          initial={{ x: "-20vw", y: "10vh" }}
+          animate={{ x: "120vw", y: "80vh" }}
           transition={{
             delay: "15",
             duration: "5",
@@ -456,27 +454,28 @@ const PlanetMenu = () => {
         >
           <Satellite
             style={{
-              width: "150px",
-              height: "150px",
+              width: "75px",
+              height: "75px",
               transform: "rotate(64deg)",
             }}
           />
           \
         </motion.div>
         <motion.div
-          initial={{ x: "110vw", y: "-10vh" }}
-          animate={{ x: "-10vw", y: "0vh" }}
+          initial={{ x: "120vw", y: "-10vh" }}
+          animate={{ x: "-20vw", y: "0vh" }}
           transition={{
             delay: "35",
             duration: "15",
             stiffness: "10000",
+            ease: 'linear',
           }}
           style={{ zIndex: "-50" }}
         >
           <SpaceShip
             style={{
-              width: "50px",
-              height: "50px",
+              width: "25px",
+              height: "25px",
               transform: "rotate(-64deg)",
             }}
           />
