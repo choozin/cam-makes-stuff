@@ -225,10 +225,7 @@ const PlanetMenu = () => {
         position: 'absolute',
         zIndex: '100',
       }}
-drag='x'
-dragSnapToOrigin
-onDrag={(event, info) => info.delta.x > 10 && alert('y')}
-dragElastic={0.95}
+        onPan={(event, info) => info.delta.x > 10 ? rotateLeft() : info.delta.x < -10 ? rotateRight() : null}
       />
       <AnimatePresence>
         {selectedPlanet === "Earth" && (
