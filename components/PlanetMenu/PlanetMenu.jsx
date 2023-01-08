@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import Swipable from "../Swipable/Swipable";
-
 import ShuttleLaunch from "../../components/PlanetMenu/SelectionPresentations/ShuttleLaunch";
 
 import PlanetEarth from "../../public/svg/planet-earth.svg";
@@ -27,6 +25,8 @@ const Planet = ({ position, planet, title, font, setPlanet }) => {
     frontRight: { x: "24vw", y: "-3vh", zIndex: "85", scale: 0.8 },
   };
 
+  const [xPos, setXPos] = useState(null);
+
   return (
     <div
       style={{
@@ -42,15 +42,6 @@ const Planet = ({ position, planet, title, font, setPlanet }) => {
       }}
       onClick={() => setPlanet(planet)}
     >
-      <div
-        style={{
-          position: "absolute",
-          zIndex: "86",
-          width: "100%",
-          height: "100%",
-          backgroundColor: "rgba(0,0,0,0.03)",
-        }}
-      />
       <motion.div
         initial={
           position === 0
@@ -89,8 +80,7 @@ const Planet = ({ position, planet, title, font, setPlanet }) => {
           damping: "7",
         }}
         whileHover={{ scale: 1.9 }}
-        whileTap={{ scale: 1.8 }}
-        style={{}}
+        style={{ border: 'solid red 1px'}}
       >
         {(planet === "Earth" && (
           <PlanetEarth style={{ width: "100px", height: "100px" }} />
@@ -190,17 +180,22 @@ const PlanetMenu = () => {
     "Work Experience",
   ];
   const calcTitles = [
-    "Automatic Quote Generators",
-    "Inventory Management Tools",
-    "Digitized Forms",
+    'Automatic Quote Generators',
+    'Inventory Management Tools',
+    'Digitized Forms',
   ];
-  const quizTitles = ["For Data Collection", "For Automated Evaluations"];
+  const quizTitles = [
+    'For Data Collection',
+    'For Automated Evaluations',
+  ];
   const landingTitles = [
-    "What is a Landing Page?",
-    "Types of Landing Pages",
-    "Complete Websites",
+    'What is a Landing Page?',
+    'Types of Landing Pages',
+    'Complete Websites',
   ];
-  const appsTitles = [];
+  const appsTitles = [
+
+  ];
   const gamesTitles = [
     "Video Games",
     "Educational / Professional Games",
@@ -219,9 +214,22 @@ const PlanetMenu = () => {
   };
 
   return (
-    <motion.div style={{ overflow: "hidden", width: "100%", height: "100%" }}
-    onPan={(event, info) => {info.delta.x > 8 ? rotateLeft() : info.delta.x < -8 ? rotateRight() : null}}
-    id='swipable'>
+    <div style={{ overflow: "hidden", width: "100%", height: "100%" }}>
+      <motion.div style={{
+        width: '50vw',
+        height: '50vh',
+        top: '25vh',
+        left: '25vw',
+        background: 'red',
+        opacity: '0.3',
+        position: 'absolute',
+        zIndex: '100',
+      }}
+drag='x'
+dragSnapToOrigin
+onDrag={(event, info) => info.delta.x > 10 && alert('y')}
+dragElastic={0.95}
+      />
       <AnimatePresence>
         {selectedPlanet === "Earth" && (
           <motion.div
@@ -316,68 +324,67 @@ const PlanetMenu = () => {
         )}
       </AnimatePresence>
 
-        <div>
-          <Sun
-            style={{
-              position: "absolute",
-              left: "43vw",
-              top: "38vh",
-              width: "14vw",
-              height: "14vw",
-              zIndex: "75",
-            }}
-          />
-          <Planet
-            planet="Earth"
-            position={earthPos}
-            title="Learn About Cam"
-            font="Marcellus SC"
-            setPlanet={setSelectedPlanet}
-          />
-          <Planet
-            planet="Moon"
-            position={moonPos}
-            title="Calculators & Forms"
-            font="Orbitron"
-            setPlanet={setSelectedPlanet}
-          />
-          <Planet
-            planet="Mars"
-            position={marsPos}
-            title="Quizzes & Charting"
-            font="Codystar"
-            setPlanet={setSelectedPlanet}
-          />
-          <Planet
-            planet="Saturn"
-            position={saturnPos}
-            title="Landing Pages"
-            font="Im Fell DW Pica SC"
-            setPlanet={setSelectedPlanet}
-          />
-          <Planet
-            planet="Asteroid"
-            position={asteroidPos}
-            title="Custom Apps"
-            font="Permanent Marker"
-            setPlanet={setSelectedPlanet}
-          />
-          <Planet
-            planet="Comet"
-            position={cometPos}
-            title="Games"
-            font="Silkscreen"
-            setPlanet={setSelectedPlanet}
-          />
-          <Planet
-            planet="SpaceStation"
-            position={spaceStationPos}
-            title="Contact Cam"
-            font="Special Elite"
-            setPlanet={setSelectedPlanet}
-          />
-        </div>
-      
+      <div>
+        <Sun
+          style={{
+            position: "absolute",
+            left: "43vw",
+            top: "38vh",
+            width: "14vw",
+            height: "14vw",
+            zIndex: "75",
+          }}
+        />
+        <Planet
+          planet="Earth"
+          position={earthPos}
+          title="Learn About Cam"
+          font="Marcellus SC"
+          setPlanet={setSelectedPlanet}
+        />
+        <Planet
+          planet="Moon"
+          position={moonPos}
+          title="Calculators & Forms"
+          font="Orbitron"
+          setPlanet={setSelectedPlanet}
+        />
+        <Planet
+          planet="Mars"
+          position={marsPos}
+          title="Quizzes & Charting"
+          font="Codystar"
+          setPlanet={setSelectedPlanet}
+        />
+        <Planet
+          planet="Saturn"
+          position={saturnPos}
+          title="Landing Pages"
+          font="Im Fell DW Pica SC"
+          setPlanet={setSelectedPlanet}
+        />
+        <Planet
+          planet="Asteroid"
+          position={asteroidPos}
+          title="Custom Apps"
+          font="Permanent Marker"
+          setPlanet={setSelectedPlanet}
+        />
+        <Planet
+          planet="Comet"
+          position={cometPos}
+          title="Games"
+          font="Silkscreen"
+          setPlanet={setSelectedPlanet}
+        />
+        <Planet
+          planet="SpaceStation"
+          position={spaceStationPos}
+          title="Contact Cam"
+          font="Special Elite"
+          setPlanet={setSelectedPlanet}
+        />
+      </div>
       <div
         style={{
           position: "absolute",
@@ -408,7 +415,7 @@ const PlanetMenu = () => {
           &#8594;
         </motion.button>
       </div>
-      {/*<div
+      <div
         style={{
           position: "absolute",
           zIndex: "89",
@@ -421,12 +428,9 @@ const PlanetMenu = () => {
           margin: "0 auto",
         }}
       >
-        <motion.button style={{ width: "25vw" }} onClick={() => rotateLeft()} />
-        <motion.button
-          style={{ width: "25vw" }}
-          onClick={() => rotateRight()}
-        />
-      </div>*/}
+        <motion.button style={{ width: "25vw" }} onClick={() => rotateLeft()}/>
+        <motion.button style={{ width: "25vw" }} onClick={() => rotateRight()}/>
+      </div>
       <div
         style={{
           position: "absolute",
@@ -477,7 +481,7 @@ const PlanetMenu = () => {
           \
         </motion.div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

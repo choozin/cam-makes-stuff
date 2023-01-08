@@ -5,6 +5,8 @@ html {
   body {
   height: 100%;
   position: fixed;
-  overflow-y: scroll;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
   -webkit-overflow-scrolling: touch;
   }
