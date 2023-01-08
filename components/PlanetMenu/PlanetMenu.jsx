@@ -215,18 +215,6 @@ const PlanetMenu = () => {
 
   return (
     <div style={{ overflow: "hidden", width: "100%", height: "100%" }}>
-      <motion.div style={{
-        width: '50vw',
-        height: '50vh',
-        top: '25vh',
-        left: '25vw',
-        background: 'red',
-        opacity: '0.3',
-        position: 'absolute',
-        zIndex: '100',
-      }}
-        onPan={(event, info) => info.delta.x > 10 ? rotateLeft() : info.delta.x < -10 ? rotateRight() : null}
-      />
       <AnimatePresence>
         {selectedPlanet === "Earth" && (
           <motion.div
@@ -332,6 +320,7 @@ const PlanetMenu = () => {
             zIndex: "75",
           }}
         />
+        <motion.div drag='x' dragSnapToOrigin dragConstraints={{ left: 10, right: 10 }} dragElastic={0.1} onDrag={(event, info) => info.delta.x > 20 ? rotateLeft() : info.delta.x < -20 ? rotateRight() : null}>
         <Planet
           planet="Earth"
           position={earthPos}
@@ -339,6 +328,7 @@ const PlanetMenu = () => {
           font="Marcellus SC"
           setPlanet={setSelectedPlanet}
         />
+        </motion.div>
         <Planet
           planet="Moon"
           position={moonPos}
