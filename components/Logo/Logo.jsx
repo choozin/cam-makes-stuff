@@ -63,7 +63,7 @@ const WhiteBackground = ({ toggleCentered }) => {
           cursor: 'pointer',
           userSelect: 'none',
           position: 'absolute',
-          bottom: '20vh',
+          bottom: '30vh',
         }}
       >
         Enter

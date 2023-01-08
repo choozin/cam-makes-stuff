@@ -22,6 +22,7 @@ const MenuItem = ({ itemTitle, itemFont, url }) => {
         textAlign: "center",
         verticalAlign: "middle",
         textShadow: '0 0 1rem black, 0 0 1rem black, 0 0 1rem black, 0 0 1rem black, ',
+        cursor: 'pointer',
       }}
       variants={item}
     >
