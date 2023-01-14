@@ -311,10 +311,10 @@ const ContentViewer = () => {
           style={{
             width: "45vw",
             maxWidth: "400px",
-            height: "19vh",
+            height: "14vh",
             background: "url('/textures/brushed-alum.png')",
             backgroundColor: "#A80",
-            marginBottom: "1vh",
+            marginBottom: "6vh",
             borderBottomLeftRadius: "3vw",
             boxShadow: "inset 1vw -1vw 0 rgba(96,96,0,0.2)",
           }}
@@ -341,10 +341,10 @@ const ContentViewer = () => {
           style={{
             width: "45vw",
             maxWidth: "400px",
-            height: "19vh",
+            height: "14vh",
             background: "url('/textures/brushed-alum.png')",
             backgroundColor: "#A80",
-            marginBottom: "1vh",
+            marginBottom: "6vh",
             borderBottomRightRadius: "3vw",
             boxShadow: "inset -1vw 0 0 rgba(255,255,255,0.2)",
           }}
