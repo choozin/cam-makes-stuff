@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-const Item = ({ itemTitle, font }) => {
+const Item = ({ itemTitle, font, enableContentViewer }) => {
   const item = {
     hidden: { opacity: 0 },
     show: { opacity: 1 },
@@ -19,6 +19,7 @@ const Item = ({ itemTitle, font }) => {
     }}
     whileHover={{ y: -3, color: '#FD8'}}
     whileTap={{ scale: 1.1, color: '#FD8' }}
+    onClick={() => enableContentViewer(itemTitle, 'content')}
     >
       {itemTitle}
       <div style={{ width: '100%', height: '100%', top: 0, left: 0}} />
@@ -26,7 +27,7 @@ const Item = ({ itemTitle, font }) => {
   );
 };
 
-const Items = ({itemTitles, font, url}) => {
+const Items = ({itemTitles, font, url, enableContentViewer}) => {
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -52,7 +53,7 @@ const Items = ({itemTitles, font, url}) => {
       variants={container} initial="hidden" animate="show">
       {itemTitles &&
         itemTitles.map((itemTitle) => (
-          <Item key={itemTitle} itemTitle={itemTitle} font={font} url={url}>
+          <Item key={itemTitle} itemTitle={itemTitle} font={font} url={url} enableContentViewer={enableContentViewer}>
             {itemTitle}
           </Item>
         ))}

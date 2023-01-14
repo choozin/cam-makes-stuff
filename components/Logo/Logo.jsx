@@ -1,9 +1,10 @@
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import MoonCycle from "../MoonCycle/MoonCycle";
 
-import CamMakesStuffLogo from '../../public/img/cammakesstuff.svg'
+import CamMakesStuffLogo from "../../public/img/cammakesstuff.svg";
 
 const WhiteBackground = ({ toggleCentered }) => {
   const [isOpen, setIsOpen] = useState(true);
@@ -35,7 +36,7 @@ const WhiteBackground = ({ toggleCentered }) => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        paddingTop: '10vh',
+        paddingTop: "10vh",
       }}
     >
       <MoonCycle style={{ width: "128px", height: "128px" }} />
@@ -47,7 +48,7 @@ const WhiteBackground = ({ toggleCentered }) => {
         whileHover={{
           scale: 1.1,
           transition: { duration: 0.5 },
-          color: '#FD8'
+          color: "#FD8",
         }}
         whileTap={{ scale: 0.1, transition: { duration: 2 } }}
         onClick={() => enterBtnClick()}
@@ -60,10 +61,11 @@ const WhiteBackground = ({ toggleCentered }) => {
           padding: "0px 10px 4px 10px",
           borderRadius: "1rem",
           fontFamily: "Silkscreen",
-          cursor: 'pointer',
-          userSelect: 'none',
-          position: 'absolute',
-          bottom: '30vh',
+          cursor: "pointer",
+          userSelect: "none",
+          position: "absolute",
+          bottom: "30vh",
+          boxShadow: '0rem 1rem 0.5rem rgba(40,40,40,0.8)',
         }}
       >
         Enter
@@ -77,7 +79,7 @@ const Logo = () => {
 
   const variants = {
     centered: { width: "100vw", height: "100vh", scale: 1, y: 0 },
-    top: { width: "100vw", height: "256px", scale: 0.3, y: -64, zIndex: "100" },
+    top: { width: "100vw", height: "256px", scale: 0.3, top: -80, zIndex: "100" },
   };
 
   return (
@@ -97,7 +99,21 @@ const Logo = () => {
       transition={{ duration: 1, delay: 1, spring: 10 }}
     >
       <WhiteBackground toggleCentered={() => setIsCentered()} />
-      <motion.div style={{ zIndex: '100', width: '280px', height: '280px', maxHeight: '50vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', }} whileHover={{ scale: !isCentered && 1.05 }} whileTap={{ scale: !isCentered && 0.9 }}>
+      <motion.div
+        style={{
+          zIndex: "99",
+          width: "280px",
+          height: "280px",
+          maxHeight: "50vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+        whileHover={{ scale: !isCentered && 1.05 }}
+        whileTap={{ scale: !isCentered && 0.9 }}
+        onClick={() => location.href = 'http://cammakesstuff.com'}
+      >
         <CamMakesStuffLogo />
       </motion.div>
     </motion.div>

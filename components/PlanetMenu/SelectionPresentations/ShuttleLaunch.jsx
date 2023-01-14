@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Items from "./Items";
 
 import SpaceShuttle from "../../../public/svg/space-shuttle.svg";
+import ContentViewer from "./ContentViewer";
 
 const MenuItem = ({ itemTitle, itemFont, url }) => {
   const item = {
@@ -23,6 +24,7 @@ const MenuItem = ({ itemTitle, itemFont, url }) => {
         verticalAlign: "middle",
         textShadow: '0 0 1rem black, 0 0 1rem black, 0 0 1rem black, 0 0 1rem black, ',
         cursor: 'pointer',
+        userSelect: 'none',
       }}
       variants={item}
     >
@@ -32,6 +34,13 @@ const MenuItem = ({ itemTitle, itemFont, url }) => {
 };
 
 const ShuttleLaunch = ({ title, itemTitles, font, urls, setPlanet }) => {
+
+  const [contentViewerOpen, setContentViewerOpen] = useState(false);
+
+  const enableContentViewer = ({title, content}) => {
+    setContentViewerOpen(true);
+  }
+
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -154,14 +163,15 @@ const ShuttleLaunch = ({ title, itemTitles, font, urls, setPlanet }) => {
             itemTitles={itemTitles}
             font={font}
             urls={urls}
+            enableContentViewer={enableContentViewer}
           />
         </motion.div>
         <div
           style={{
             position: "absolute",
-            top: "0.5rem",
+            top: contentViewerOpen ? "-10rem" : "0.5rem",
             left: "0.5rem",
-            zIndex: "100",
+            zIndex: 100,
             fontFamily: font,
           }}
         >
@@ -183,6 +193,7 @@ const ShuttleLaunch = ({ title, itemTitles, font, urls, setPlanet }) => {
             </motion.span>
           </div>
         </div>
+        { contentViewerOpen ? <ContentViewer/> : null }
       </div>
     </AnimatePresence>
   );
