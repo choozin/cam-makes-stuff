@@ -16,6 +16,7 @@ const Item = ({ itemTitle, font, enableContentViewer }) => {
       padding: '1rem',
       textShadow: '0rem 0rem 1rem black, 0rem 0rem 1rem black, 0rem 0rem 1rem black, 0rem 0rem 1rem black',
       cursor: 'pointer',
+      textAlign: 'center',
     }}
     whileHover={{ y: -3, color: '#FD8'}}
     whileTap={{ scale: 1.1, color: '#FD8' }}
@@ -49,6 +50,7 @@ const Items = ({itemTitles, font, url, enableContentViewer}) => {
         verticalAlign: "center",
         alignItems: "center",
         justifyContent: "space-around",
+        textAlign: 'center',
       }}
       variants={container} initial="hidden" animate="show">
       {itemTitles &&

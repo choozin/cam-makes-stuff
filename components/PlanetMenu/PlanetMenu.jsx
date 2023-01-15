@@ -146,11 +146,9 @@ const Planet = ({ position, planet, title, font, setPlanet }) => {
   );
 };
 
-const PlanetMenu = () => {
+const PlanetMenu = ({selectedPlanet, setSelectedPlanet}) => {
 
   const windowSize = useWindowSize();
-
-  const [selectedPlanet, setSelectedPlanet] = useState("None");
 
   const [earthPos, setEarthPos] = useState(0);
   const [moonPos, setMoonPos] = useState(6);
@@ -314,7 +312,6 @@ const PlanetMenu = () => {
           </motion.div>
         )}
       </AnimatePresence>
-
       <div>
         <Sun
           style={{

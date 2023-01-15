@@ -39,7 +39,7 @@ const WhiteBackground = ({ toggleCentered }) => {
         paddingTop: "10vh",
       }}
     >
-      <MoonCycle style={{ width: "128px", height: "128px" }} />
+      <div style={{ transform: 'scale(2.4)', marginTop: '10%'}}><MoonCycle /></div>
       <div />
       <motion.div
         initial={{ opacity: 0 }}

@@ -4,6 +4,8 @@ import styles from "../styles/Home.module.css";
 
 import dynamic from 'next/dynamic'
 
+import { useState } from 'react'
+
 import StarrySky from "../components/Starfield/StarrySky";
 import Logo from "../components/Logo/Logo";
 import PlanetMenu from "../components/PlanetMenu/PlanetMenu";
@@ -37,6 +39,8 @@ const DynamicStarrySky = dynamic(() => import('../components/Starfield/StarrySky
 })
 
 export default function Home() {
+  const [selectedPlanet, setSelectedPlanet] = useState("None");
+
   return (
     <div
       style={{
@@ -51,7 +55,7 @@ export default function Home() {
       </Head>
 
       <Logo />
-      <DynamicPlanetMenu/>
+      <DynamicPlanetMenu selectedPlanet={selectedPlanet} setSelectedPlanet={setSelectedPlanet}/>
 
       <DynamicStarrySky />
     </div>

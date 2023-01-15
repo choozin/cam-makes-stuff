@@ -4,7 +4,7 @@ const ScreenSizePopup = ({ size }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   useEffect(() => {
-    size.height < 380 && setIsPopupOpen(true)
+    size.height < 320 && setIsPopupOpen(true)
   }, [size]);
 
   return (
@@ -46,7 +46,7 @@ const ScreenSizePopup = ({ size }) => {
             <p>
               I recommend you turn your mobile device to{" "}
               <i style={{ fontWeight: "bold" }}>portrait orientation</i> for a
-              better experience, or use a device with a screen height of at least 380px.
+              better experience, or use a device with a screen height of at least 320px.
             </p>
             <button
               onClick={() => setIsPopupOpen(false)}

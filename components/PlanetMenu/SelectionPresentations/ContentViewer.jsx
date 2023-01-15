@@ -255,7 +255,7 @@ const ContentViewer = () => {
         </div>
       </div>
 
-      {size.height > 380 ? (
+      {size.height > 320 ? (
         <div
           id="layer4"
           style={{
