@@ -10,7 +10,7 @@ const RightArm = ({ time }) => {
       style={{
         width: "50vw",
         height: "3vh",
-        top: "8.5vh",
+        top: "6.5vh",
         position: "relative",
         left: "100%",
         background: "url('/textures/office.png')",
@@ -45,7 +45,7 @@ const LeftArm = ({ time }) => {
       style={{
         width: "50vw",
         height: "3vh",
-        top: "8.5vh",
+        top: "6.5vh",
         position: "relative",
         left: "-50vw",
         background: "url('/textures/office.png')",
@@ -97,6 +97,7 @@ const ContentViewer = () => {
           width: "100%",
           display: "flex",
           justifyContent: "center",
+          paddingTop:'2vh',
         }}
       >
         <div
@@ -124,7 +125,7 @@ const ContentViewer = () => {
         </div>
         <motion.div
           style={{
-            height: "20vh",
+            height: "14vh",
           }}
           initial={{
             width: "110vw",
@@ -166,7 +167,7 @@ const ContentViewer = () => {
           style={{
             width: "45vw",
             maxWidth: "400px",
-            height: "20vh",
+            height: "16vh",
             background: "url('/textures/brushed-alum.png')",
             backgroundColor: "#A80",
             boxShadow: "inset 1vw 0 0vw rgba(96,96,0,0.2)",
@@ -176,7 +177,7 @@ const ContentViewer = () => {
         </div>
         <motion.div
           style={{
-            height: "20vh",
+            height: "16vh",
           }}
           initial={{
             width: "110vw",
@@ -194,7 +195,7 @@ const ContentViewer = () => {
           style={{
             width: "45vw",
             maxWidth: "400px",
-            height: "20vh",
+            height: "16vh",
             background: "url('/textures/brushed-alum.png')",
             backgroundColor: "#A80",
             boxShadow: "inset -1vw 0 0vw rgba(255,255,255,0.2)",
@@ -216,7 +217,7 @@ const ContentViewer = () => {
           style={{
             width: "45vw",
             maxWidth: "400px",
-            height: "20vh",
+            height: "16vh",
             background: "url('/textures/brushed-alum.png')",
             backgroundColor: "#A80",
             boxShadow: "inset 1vw 0 0vw rgba(96,96,0,0.2)",
@@ -226,7 +227,7 @@ const ContentViewer = () => {
         </div>
         <motion.div
           style={{
-            height: "20vh",
+            height: "16vh",
           }}
           initial={{
             width: "110vw",
@@ -244,7 +245,7 @@ const ContentViewer = () => {
           style={{
             width: "45vw",
             maxWidth: "400px",
-            height: "20vh",
+            height: "16vh",
             background: "url('/textures/brushed-alum.png')",
             backgroundColor: "#A80",
             boxShadow: "inset -1vw 0 0vw rgba(255,255,255,0.2)",
@@ -267,7 +268,7 @@ const ContentViewer = () => {
             style={{
               width: "45vw",
               maxWidth: "400px",
-              height: "20vh",
+              height: "16vh",
               background: "url('/textures/brushed-alum.png')",
               backgroundColor: "#A80",
               boxShadow: "inset 1vw 0 0vw rgba(96,96,0,0.2)",
@@ -277,7 +278,7 @@ const ContentViewer = () => {
           </div>
           <motion.div
             style={{
-              height: "20vh",
+              height: "16vh",
             }}
             initial={{
               width: "110vw",
@@ -295,7 +296,7 @@ const ContentViewer = () => {
             style={{
               width: "45vw",
               maxWidth: "400px",
-              height: "20vh",
+              height: "16vh",
               background: "url('/textures/brushed-alum.png')",
               backgroundColor: "#A80",
               boxShadow: "inset -1vw 0 0vw rgba(255,255,255,0.2)",
@@ -330,7 +331,7 @@ const ContentViewer = () => {
         </div>
         <motion.div
           style={{
-            height: "20vh",
+            height: "14vh",
           }}
           initial={{
             width: "110vw",
