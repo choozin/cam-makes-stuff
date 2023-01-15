@@ -3,6 +3,10 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import ShuttleLaunch from "../../components/PlanetMenu/SelectionPresentations/ShuttleLaunch";
 
+import ScreenSizePopup from '../Popups/ScreenSize';
+
+import useWindowSize from "../../utilities/useWindowSize";
+
 import PlanetEarth from "../../public/svg/planet-earth.svg";
 import Mars from "../../public/svg/mars.svg";
 import Saturn from "../../public/svg/ringed-planet.svg";
@@ -143,6 +147,9 @@ const Planet = ({ position, planet, title, font, setPlanet }) => {
 };
 
 const PlanetMenu = () => {
+
+  const windowSize = useWindowSize();
+
   const [selectedPlanet, setSelectedPlanet] = useState("None");
 
   const [earthPos, setEarthPos] = useState(0);
@@ -483,6 +490,7 @@ const PlanetMenu = () => {
           \
         </motion.div>
       </div>
+      <ScreenSizePopup size={windowSize}/>
     </div>
   );
 };

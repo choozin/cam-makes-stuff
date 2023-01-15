@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 
 import { motion } from "framer-motion";
 
+import useWindowSize from "../../../utilities/useWindowSize";
+
 const RightArm = ({ time }) => {
   return (
     <motion.div
@@ -73,6 +75,9 @@ const LeftArm = ({ time }) => {
 };
 
 const ContentViewer = () => {
+
+  const size = useWindowSize();
+
   return (
     <div
       style={{
@@ -101,7 +106,7 @@ const ContentViewer = () => {
             height: "14vh",
             background: "url('/textures/brushed-alum.png')",
             backgroundColor: "#A80",
-            marginTop: "6vh",
+            marginTop: "10vh",
             borderTopLeftRadius: "3vw",
             boxShadow: "inset 1vw 0 0vw rgba(96,96,0,0.2)",
           }}
@@ -140,7 +145,7 @@ const ContentViewer = () => {
             height: "14vh",
             background: "url('/textures/brushed-alum.png')",
             backgroundColor: "#A80",
-            marginTop: "6vh",
+            marginTop: "10vh",
             borderTopRightRadius: "3vw",
             boxShadow: "inset -1vw 1vw 0vw rgba(255,255,255,0.2)",
           }}
@@ -249,55 +254,57 @@ const ContentViewer = () => {
         </div>
       </div>
 
-      <div
-        id="layer4"
-        style={{
-          width: "100%",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
+      {size.height > 380 ? (
         <div
+          id="layer4"
           style={{
-            width: "45vw",
-            maxWidth: "400px",
-            height: "20vh",
-            background: "url('/textures/brushed-alum.png')",
-            backgroundColor: "#A80",
-            boxShadow: "inset 1vw 0 0vw rgba(96,96,0,0.2)",
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
           }}
         >
-          <LeftArm time="3.7" />
+          <div
+            style={{
+              width: "45vw",
+              maxWidth: "400px",
+              height: "20vh",
+              background: "url('/textures/brushed-alum.png')",
+              backgroundColor: "#A80",
+              boxShadow: "inset 1vw 0 0vw rgba(96,96,0,0.2)",
+            }}
+          >
+            <LeftArm time="3.7" />
+          </div>
+          <motion.div
+            style={{
+              height: "20vh",
+            }}
+            initial={{
+              width: "110vw",
+            }}
+            animate={{
+              width: "0",
+            }}
+            transition={{
+              delay: "1.75",
+              duration: "1",
+              ease: "anticipate",
+            }}
+          ></motion.div>
+          <div
+            style={{
+              width: "45vw",
+              maxWidth: "400px",
+              height: "20vh",
+              background: "url('/textures/brushed-alum.png')",
+              backgroundColor: "#A80",
+              boxShadow: "inset -1vw 0 0vw rgba(255,255,255,0.2)",
+            }}
+          >
+            <RightArm time="3.7" />
+          </div>
         </div>
-        <motion.div
-          style={{
-            height: "20vh",
-          }}
-          initial={{
-            width: "110vw",
-          }}
-          animate={{
-            width: "0",
-          }}
-          transition={{
-            delay: "1.75",
-            duration: "1",
-            ease: "anticipate",
-          }}
-        ></motion.div>
-        <div
-          style={{
-            width: "45vw",
-            maxWidth: "400px",
-            height: "20vh",
-            background: "url('/textures/brushed-alum.png')",
-            backgroundColor: "#A80",
-            boxShadow: "inset -1vw 0 0vw rgba(255,255,255,0.2)",
-          }}
-        >
-          <RightArm time="3.7" />
-        </div>
-      </div>
+      ) : null}
 
       <div
         id="layer5"
@@ -361,8 +368,18 @@ const ContentViewer = () => {
           </div>
         </div>
       </div>
-      <motion.div style={{ position: 'absolute', width: '100%', height: '100%', background: '#000', zIndex: -1}}
-      initial={{ opacity: 0 }} animate={{ opacity: 0.5 }} transition={{ }}/>
+      <motion.div
+        style={{
+          position: "absolute",
+          width: "100%",
+          height: "100%",
+          background: "#000",
+          zIndex: -1,
+        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.5 }}
+        transition={{}}
+      />
     </div>
   );
 };
