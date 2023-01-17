@@ -196,7 +196,7 @@ const ShuttleLaunch = ({ title, itemTitles, font, urls, setPlanet }) => {
             </motion.span>
           </div>
         </div>
-        { contentViewerOpen ? <ContentViewer font={font} itemTitle={selectedItemTitle} /> : null }
+        { contentViewerOpen ? <ContentViewer font={font} itemTitle={selectedItemTitle} setPlanet={setPlanet} setContentViewerOpen={setContentViewerOpen} /> : null }
       </div>
     </AnimatePresence>
   );
