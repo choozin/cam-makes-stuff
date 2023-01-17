@@ -481,7 +481,7 @@ const ContentViewer = ({ itemTitle, font, setPlanet, setContentViewerOpen }) => 
             }}
             onClick={() => setContentViewerOpen(false)}
           >
-            Back
+            Back 
           </div>
         </div>
         <motion.div
