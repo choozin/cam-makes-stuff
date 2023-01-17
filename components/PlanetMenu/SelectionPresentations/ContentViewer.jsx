@@ -135,7 +135,7 @@ const ContentContainer = ({ font }) => {
           <h3 style={{ textAlign: "center" }}>Landing Pages</h3>
           <p>
             Landing pages are standalone web pages that are designed to capture
-            a visitor's attention and convert them into a lead or customer. They
+            a visitor&apos;s attention and convert them into a lead or customer. They
             are typically used as part of a marketing campaign and are designed
             to be highly targeted, relevant and focused on a specific action.
           </p>
