@@ -36,10 +36,13 @@ const MenuItem = ({ itemTitle, itemFont, url }) => {
 const ShuttleLaunch = ({ title, itemTitles, font, urls, setPlanet }) => {
 
   const [contentViewerOpen, setContentViewerOpen] = useState(false);
+  const [selectedItemTitle, setSelectedItemTitle] = useState('None');
 
-  const enableContentViewer = ({title, content}) => {
+  const enableContentViewer = (itemTitle) => {
     setContentViewerOpen(true);
+    setSelectedItemTitle(itemTitle)
   }
+
 
   const container = {
     hidden: { opacity: 0 },
@@ -193,7 +196,7 @@ const ShuttleLaunch = ({ title, itemTitles, font, urls, setPlanet }) => {
             </motion.span>
           </div>
         </div>
-        { contentViewerOpen ? <ContentViewer/> : null }
+        { contentViewerOpen ? <ContentViewer font={font} itemTitle={selectedItemTitle} /> : null }
       </div>
     </AnimatePresence>
   );

@@ -54,7 +54,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Logo />
+      <Logo selectedPlanet={selectedPlanet} setSelectedPlanet={setSelectedPlanet} />
       <DynamicPlanetMenu selectedPlanet={selectedPlanet} setSelectedPlanet={setSelectedPlanet}/>
 
       <DynamicStarrySky />

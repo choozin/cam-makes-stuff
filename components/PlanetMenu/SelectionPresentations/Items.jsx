@@ -20,7 +20,7 @@ const Item = ({ itemTitle, font, enableContentViewer }) => {
     }}
     whileHover={{ y: -3, color: '#FD8'}}
     whileTap={{ scale: 1.1, color: '#FD8' }}
-    onClick={() => enableContentViewer(itemTitle, 'content')}
+    onClick={() => enableContentViewer(itemTitle)}
     >
       {itemTitle}
       <div style={{ width: '100%', height: '100%', top: 0, left: 0}} />
@@ -28,7 +28,7 @@ const Item = ({ itemTitle, font, enableContentViewer }) => {
   );
 };
 
-const Items = ({itemTitles, font, url, enableContentViewer}) => {
+const Items = ({itemTitles, font, url, enableContentViewer, selectedItemTitle, setSelectedItemTitle}) => {
   const container = {
     hidden: { opacity: 0 },
     show: {

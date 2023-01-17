@@ -74,7 +74,7 @@ const WhiteBackground = ({ toggleCentered }) => {
   );
 };
 
-const Logo = () => {
+const Logo = ({selectedPlanet, setSelectedPlanet}) => {
   const [isCentered, setIsCentered] = useState(true);
 
   const variants = {
@@ -112,7 +112,7 @@ const Logo = () => {
         }}
         whileHover={{ scale: !isCentered && 1.05 }}
         whileTap={{ scale: !isCentered && 0.9 }}
-        onClick={() => location.href = 'http://cammakesstuff.com'}
+        onClick={() => setSelectedPlanet('None')/*location.href = 'http://cammakesstuff.com'*/}
       >
         <CamMakesStuffLogo />
       </motion.div>

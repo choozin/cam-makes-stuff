@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import ShuttleLaunch from "../../components/PlanetMenu/SelectionPresentations/ShuttleLaunch";
 
-import ScreenSizePopup from '../Popups/ScreenSize';
+import ScreenSizePopup from "../Popups/ScreenSize";
 
 import useWindowSize from "../../utilities/useWindowSize";
 
@@ -92,7 +92,11 @@ const Planet = ({ position, planet, title, font, setPlanet }) => {
           (planet === "Saturn" && (
             <div style={{ width: "100px", height: "100px" }}>
               <Saturn
-                style={{ transform: "scale(1.45)", marginLeft: "-15px", marginTop: '-15px' }}
+                style={{
+                  transform: "scale(1.45)",
+                  marginLeft: "-15px",
+                  marginTop: "-15px",
+                }}
               />
             </div>
           )) ||
@@ -106,7 +110,7 @@ const Planet = ({ position, planet, title, font, setPlanet }) => {
           )) ||
           (planet === "Comet" && (
             <div style={{ width: "100px", height: "100px" }}>
-              <Comet style={{ transform: "scale(0.9)", marginTop: '-25px' }} />
+              <Comet style={{ transform: "scale(0.9)", marginTop: "-25px" }} />
             </div>
           )) ||
           (planet === "SpaceStation" && (
@@ -127,18 +131,21 @@ const Planet = ({ position, planet, title, font, setPlanet }) => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.17 }}
           >
-            <motion.span
+            <span
               style={{
                 color: "#FFF",
                 fontFamily: font,
                 textShadow: "0 0 0.5rem #000, 0 0 0.5rem #000",
                 fontSize: "1rem",
                 cursor: "pointer",
-                userSelect: 'none',
+                userSelect: "none",
               }}
             >
               {title}
-            </motion.span>
+            </span>
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 3, duration: 4 }}>
+              <span style={{ fontFamily: font, color: 'white', fontSize: '0.5rem', textShadow: '1px 1px 4px black, -1px -1px 4px black, 1px -1px 4px black, -1px 1px 4px black', position: 'relative', top: -70 }}>Click to Proceed</span>
+            </motion.div>
           </motion.div>
         )}
       </motion.div>
@@ -146,8 +153,7 @@ const Planet = ({ position, planet, title, font, setPlanet }) => {
   );
 };
 
-const PlanetMenu = ({selectedPlanet, setSelectedPlanet}) => {
-
+const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
   const windowSize = useWindowSize();
 
   const [earthPos, setEarthPos] = useState(0);
@@ -184,22 +190,17 @@ const PlanetMenu = ({selectedPlanet, setSelectedPlanet}) => {
     "Work Experience",
   ];
   const calcTitles = [
-    'Automatic Quote Generators',
-    'Inventory Management Tools',
-    'Digitized Forms',
+    "Automatic Quote Generators",
+    "Inventory Management Tools",
+    "Digitized Forms",
   ];
-  const quizTitles = [
-    'For Data Collection',
-    'For Automated Evaluations',
-  ];
+  const quizTitles = ["For Data Collection", "For Automated Evaluations"];
   const landingTitles = [
-    'What is a Landing Page?',
-    'Types of Landing Pages',
-    'Complete Websites',
+    "What is a Landing Page?",
+    "Types of Landing Pages",
+    "Complete Websites",
   ];
-  const appsTitles = [
-
-  ];
+  const appsTitles = [];
   const gamesTitles = [
     "Video Games",
     "Educational / Professional Games",
@@ -323,71 +324,152 @@ const PlanetMenu = ({selectedPlanet, setSelectedPlanet}) => {
             zIndex: "75",
           }}
         />
-        <motion.div drag='x' dragSnapToOrigin dragConstraints={{ left: 20, right: 20 }} dragElastic={0.1} onDragEnd={(event, info) => info.offset.x > 30 ? rotateLeft() : info.offset.x < -30 ? rotateRight() : null}>
-        <Planet
-          planet="Earth"
-          position={earthPos}
-          title="Learn About Cam"
-          font="Marcellus SC"
-          setPlanet={setSelectedPlanet}
-        />
+        <motion.div
+          drag="x"
+          dragSnapToOrigin
+          dragConstraints={{ left: 20, right: 20 }}
+          dragElastic={0.1}
+          onDragEnd={(event, info) =>
+            info.offset.x > 30
+              ? rotateLeft()
+              : info.offset.x < -30
+              ? rotateRight()
+              : null
+          }
+        >
+          <Planet
+            planet="Earth"
+            position={earthPos}
+            title="Learn About Cam"
+            font="Marcellus SC"
+            setPlanet={setSelectedPlanet}
+          />
         </motion.div>
-        <motion.div drag='x' dragSnapToOrigin dragConstraints={{ left: 20, right: 20 }} dragElastic={0.1} onDragEnd={(event, info) => info.offset.x > 30 ? rotateLeft() : info.offset.x < -30 ? rotateRight() : null}>
-        <Planet
-          planet="Moon"
-          position={moonPos}
-          title="Calculators & Forms"
-          font="Orbitron"
-          setPlanet={setSelectedPlanet}
-        />
+        <motion.div
+          drag="x"
+          dragSnapToOrigin
+          dragConstraints={{ left: 20, right: 20 }}
+          dragElastic={0.1}
+          onDragEnd={(event, info) =>
+            info.offset.x > 30
+              ? rotateLeft()
+              : info.offset.x < -30
+              ? rotateRight()
+              : null
+          }
+        >
+          <Planet
+            planet="Moon"
+            position={moonPos}
+            title="Calculators & Forms"
+            font="Orbitron"
+            setPlanet={setSelectedPlanet}
+          />
         </motion.div>
-        <motion.div drag='x' dragSnapToOrigin dragConstraints={{ left: 20, right: 20 }} dragElastic={0.1} onDragEnd={(event, info) => info.offset.x > 30 ? rotateLeft() : info.offset.x < -30 ? rotateRight() : null}>
-        <Planet
-          planet="Mars"
-          position={marsPos}
-          title="Quizzes & Charting"
-          font="Codystar"
-          setPlanet={setSelectedPlanet}
-        />
+        <motion.div
+          drag="x"
+          dragSnapToOrigin
+          dragConstraints={{ left: 20, right: 20 }}
+          dragElastic={0.1}
+          onDragEnd={(event, info) =>
+            info.offset.x > 30
+              ? rotateLeft()
+              : info.offset.x < -30
+              ? rotateRight()
+              : null
+          }
+        >
+          <Planet
+            planet="Mars"
+            position={marsPos}
+            title="Quizzes & Charting"
+            font="Codystar"
+            setPlanet={setSelectedPlanet}
+          />
         </motion.div>
-        <motion.div drag='x' dragSnapToOrigin dragConstraints={{ left: 20, right: 20 }} dragElastic={0.1} onDragEnd={(event, info) => info.offset.x > 30 ? rotateLeft() : info.offset.x < -30 ? rotateRight() : null}>
-        <Planet
-          planet="Saturn"
-          position={saturnPos}
-          title="Landing Pages"
-          font="Im Fell DW Pica SC"
-          setPlanet={setSelectedPlanet}
-        />
+        <motion.div
+          drag="x"
+          dragSnapToOrigin
+          dragConstraints={{ left: 20, right: 20 }}
+          dragElastic={0.1}
+          onDragEnd={(event, info) =>
+            info.offset.x > 30
+              ? rotateLeft()
+              : info.offset.x < -30
+              ? rotateRight()
+              : null
+          }
+        >
+          <Planet
+            planet="Saturn"
+            position={saturnPos}
+            title="Landing Pages"
+            font="Im Fell DW Pica SC"
+            setPlanet={setSelectedPlanet}
+          />
         </motion.div>
-        <motion.div drag='x' dragSnapToOrigin dragConstraints={{ left: 20, right: 20 }} dragElastic={0.1} onDragEnd={(event, info) => info.offset.x > 30 ? rotateLeft() : info.offset.x < -30 ? rotateRight() : null}>
-        
-        <Planet
-          planet="Asteroid"
-          position={asteroidPos}
-          title="Custom Apps"
-          font="Permanent Marker"
-          setPlanet={setSelectedPlanet}
-        />
+        <motion.div
+          drag="x"
+          dragSnapToOrigin
+          dragConstraints={{ left: 20, right: 20 }}
+          dragElastic={0.1}
+          onDragEnd={(event, info) =>
+            info.offset.x > 30
+              ? rotateLeft()
+              : info.offset.x < -30
+              ? rotateRight()
+              : null
+          }
+        >
+          <Planet
+            planet="Asteroid"
+            position={asteroidPos}
+            title="Custom Apps"
+            font="Permanent Marker"
+            setPlanet={setSelectedPlanet}
+          />
         </motion.div>
-        <motion.div drag='x' dragSnapToOrigin dragConstraints={{ left: 20, right: 20 }} dragElastic={0.1} onDragEnd={(event, info) => info.offset.x > 30 ? rotateLeft() : info.offset.x < -30 ? rotateRight() : null}>
-        
-        <Planet
-          planet="Comet"
-          position={cometPos}
-          title="Games"
-          font="Silkscreen"
-          setPlanet={setSelectedPlanet}
-        />
+        <motion.div
+          drag="x"
+          dragSnapToOrigin
+          dragConstraints={{ left: 20, right: 20 }}
+          dragElastic={0.1}
+          onDragEnd={(event, info) =>
+            info.offset.x > 30
+              ? rotateLeft()
+              : info.offset.x < -30
+              ? rotateRight()
+              : null
+          }
+        >
+          <Planet
+            planet="Comet"
+            position={cometPos}
+            title="Games"
+            font="Silkscreen"
+            setPlanet={setSelectedPlanet}
+          />
         </motion.div>
-        <motion.div drag='x' dragSnapToOrigin dragConstraints={{ left: 20, right: 20 }} dragElastic={0.1} onDragEnd={(event, info) => info.offset.x > 30 ? rotateLeft() : info.offset.x < -30 ? rotateRight() : null}>
-        
-        <Planet
-          planet="SpaceStation"
-          position={spaceStationPos}
-          title="Contact Cam"
-          font="Special Elite"
-          setPlanet={setSelectedPlanet}
-        />
+        <motion.div
+          drag="x"
+          dragSnapToOrigin
+          dragConstraints={{ left: 20, right: 20 }}
+          dragElastic={0.1}
+          onDragEnd={(event, info) =>
+            info.offset.x > 30
+              ? rotateLeft()
+              : info.offset.x < -30
+              ? rotateRight()
+              : null
+          }
+        >
+          <Planet
+            planet="SpaceStation"
+            position={spaceStationPos}
+            title="Contact Cam"
+            font="Special Elite"
+            setPlanet={setSelectedPlanet}
+          />
         </motion.div>
       </div>
       <div
@@ -433,8 +515,11 @@ const PlanetMenu = ({selectedPlanet, setSelectedPlanet}) => {
           margin: "0 auto",
         }}
       >
-        <motion.button style={{ width: "25vw" }} onClick={() => rotateLeft()}/>
-        <motion.button style={{ width: "25vw" }} onClick={() => rotateRight()}/>
+        <motion.button style={{ width: "25vw" }} onClick={() => rotateLeft()} />
+        <motion.button
+          style={{ width: "25vw" }}
+          onClick={() => rotateRight()}
+        />
       </div>
       <div
         style={{
@@ -473,7 +558,7 @@ const PlanetMenu = ({selectedPlanet, setSelectedPlanet}) => {
             delay: "35",
             duration: "15",
             stiffness: "10000",
-            ease: 'linear',
+            ease: "linear",
           }}
           style={{ zIndex: "-50" }}
         >
@@ -487,7 +572,7 @@ const PlanetMenu = ({selectedPlanet, setSelectedPlanet}) => {
           \
         </motion.div>
       </div>
-      <ScreenSizePopup size={windowSize}/>
+      <ScreenSizePopup size={windowSize} />
     </div>
   );
 };

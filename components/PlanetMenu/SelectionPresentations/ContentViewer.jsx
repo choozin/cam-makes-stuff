@@ -22,7 +22,7 @@ const RightArm = ({ time }) => {
       }}
       initial={{ x: 0 }}
       animate={{ x: "70vh" }}
-      transition={{ delay: time }}
+      transition={{ delay: time, duration: "1" }}
     >
       <div
         style={{
@@ -57,7 +57,7 @@ const LeftArm = ({ time }) => {
       }}
       initial={{ x: 0 }}
       animate={{ x: "-70vh" }}
-      transition={{ delay: time }}
+      transition={{ delay: time, duration: "1" }}
     >
       <div
         style={{
@@ -74,8 +74,37 @@ const LeftArm = ({ time }) => {
   );
 };
 
-const ContentViewer = () => {
+const MiddleGrid = ({ side }) => {
+  return (
+    <div
+      style={{
+        backgroundColor: "#040",
+        height: "18vh",
+        marginTop: "-3.5vh",
+        marginLeft: side === "left" ? "3vw" : 0,
+        marginRight: side === "right" ? "3vw" : 0,
+      }}
+    >
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          background: "url('textures/3px-tile.png')",
+        }}
+      ></div>
+    </div>
+  );
+}; 
 
+const ContentContainer = () => {
+  return (
+    <div style={{ width: '84vw', height: '48vh'}}>
+
+    </div>
+  )
+}
+
+const ContentViewer = ({ itemTitle, font }) => {
   const size = useWindowSize();
 
   return (
@@ -85,7 +114,7 @@ const ContentViewer = () => {
         height: "100vh",
         margin: "0 auto",
         position: "absolute",
-        zIndex: "98",
+        zIndex: "97",
         display: "flex",
         flexDirection: "column",
         overflow: "hidden",
@@ -97,7 +126,7 @@ const ContentViewer = () => {
           width: "100%",
           display: "flex",
           justifyContent: "center",
-          paddingTop:'2vh',
+          paddingTop: "2vh",
         }}
       >
         <div
@@ -126,6 +155,8 @@ const ContentViewer = () => {
         <motion.div
           style={{
             height: "14vh",
+            zIndex: "95",
+            textAlign: "center",
           }}
           initial={{
             width: "110vw",
@@ -138,7 +169,8 @@ const ContentViewer = () => {
             duration: "1",
             ease: "anticipate",
           }}
-        ></motion.div>
+        >
+        </motion.div>
         <div
           style={{
             width: "45vw",
@@ -167,17 +199,18 @@ const ContentViewer = () => {
           style={{
             width: "45vw",
             maxWidth: "400px",
-            height: "16vh",
+            height: "18vh",
             background: "url('/textures/brushed-alum.png')",
             backgroundColor: "#A80",
             boxShadow: "inset 1vw 0 0vw rgba(96,96,0,0.2)",
           }}
         >
           <LeftArm time="3.9" />
+          <MiddleGrid side="left" />
         </div>
         <motion.div
           style={{
-            height: "16vh",
+            height: "18vh",
           }}
           initial={{
             width: "110vw",
@@ -195,13 +228,14 @@ const ContentViewer = () => {
           style={{
             width: "45vw",
             maxWidth: "400px",
-            height: "16vh",
+            height: "18vh",
             background: "url('/textures/brushed-alum.png')",
             backgroundColor: "#A80",
             boxShadow: "inset -1vw 0 0vw rgba(255,255,255,0.2)",
           }}
         >
           <RightArm time="3.9" />
+          <MiddleGrid side="right" />
         </div>
       </div>
 
@@ -217,17 +251,18 @@ const ContentViewer = () => {
           style={{
             width: "45vw",
             maxWidth: "400px",
-            height: "16vh",
+            height: "18vh",
             background: "url('/textures/brushed-alum.png')",
             backgroundColor: "#A80",
             boxShadow: "inset 1vw 0 0vw rgba(96,96,0,0.2)",
           }}
         >
           <LeftArm time="3.8" />
+          <MiddleGrid side="left" />
         </div>
         <motion.div
           style={{
-            height: "16vh",
+            height: "18vh",
           }}
           initial={{
             width: "110vw",
@@ -245,13 +280,14 @@ const ContentViewer = () => {
           style={{
             width: "45vw",
             maxWidth: "400px",
-            height: "16vh",
+            height: "18vh",
             background: "url('/textures/brushed-alum.png')",
             backgroundColor: "#A80",
             boxShadow: "inset -1vw 0 0vw rgba(255,255,255,0.2)",
           }}
         >
           <RightArm time="3.8" />
+          <MiddleGrid side="right" />
         </div>
       </div>
 
@@ -268,17 +304,18 @@ const ContentViewer = () => {
             style={{
               width: "45vw",
               maxWidth: "400px",
-              height: "16vh",
+              height: "18vh",
               background: "url('/textures/brushed-alum.png')",
               backgroundColor: "#A80",
               boxShadow: "inset 1vw 0 0vw rgba(96,96,0,0.2)",
             }}
           >
             <LeftArm time="3.7" />
+            <MiddleGrid side="left" />
           </div>
           <motion.div
             style={{
-              height: "16vh",
+              height: "18vh",
             }}
             initial={{
               width: "110vw",
@@ -296,13 +333,14 @@ const ContentViewer = () => {
             style={{
               width: "45vw",
               maxWidth: "400px",
-              height: "16vh",
+              height: "18vh",
               background: "url('/textures/brushed-alum.png')",
               backgroundColor: "#A80",
               boxShadow: "inset -1vw 0 0vw rgba(255,255,255,0.2)",
             }}
           >
             <RightArm time="3.7" />
+            <MiddleGrid side="right" />
           </div>
         </div>
       ) : null}
