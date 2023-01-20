@@ -143,8 +143,24 @@ const Planet = ({ position, planet, title, font, setPlanet }) => {
             >
               {title}
             </span>
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 3, duration: 4 }}>
-              <span style={{ fontFamily: font, color: 'white', fontSize: '0.5rem', textShadow: '1px 1px 4px black, -1px -1px 4px black, 1px -1px 4px black, -1px 1px 4px black', position: 'relative', top: -70 }}>Click to Proceed</span>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 3, duration: 4 }}
+            >
+              <span
+                style={{
+                  fontFamily: font,
+                  color: "white",
+                  fontSize: "0.5rem",
+                  textShadow:
+                    "1px 1px 4px black, -1px -1px 4px black, 1px -1px 4px black, -1px 1px 4px black",
+                  position: "relative",
+                  top: -70,
+                }}
+              >
+                Click to Proceed
+              </span>
             </motion.div>
           </motion.div>
         )}
@@ -157,9 +173,9 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
   const windowSize = useWindowSize();
 
   const [earthPos, setEarthPos] = useState(0);
-  const [moonPos, setMoonPos] = useState(6);
+  const [saturnPos, setSaturnPos] = useState(6);
   const [marsPos, setMarsPos] = useState(5);
-  const [saturnPos, setSaturnPos] = useState(4);
+  const [moonPos, setMoonPos] = useState(4);
   const [cometPos, setCometPos] = useState(3);
   const [asteroidPos, setAsteroidPos] = useState(2);
   const [spaceStationPos, setSpaceStationPos] = useState(1);
@@ -185,28 +201,44 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
 
   const learnTitles = [
     "A Breif History of Cam",
-    "Technical Skills",
+    "Contact Cam",
     "Interests & Hobbies",
     "Work Experience",
   ];
   const calcTitles = [
-    "Automatic Quote Generators",
-    "Inventory Management Tools",
-    "Digitized Forms",
+    "Multi-Variable Calculators",
+    "Quote Generators",
+    "Automated Evaluations",
+    "3rd-Party Data Processing",
+    "Data Charting",
   ];
-  const quizTitles = ["For Data Collection", "For Automated Evaluations"];
-  const landingTitles = [
-    "What is a Landing Page?",
-    "Types of Landing Pages",
-    "Complete Websites",
+  const sitesTitles = [
+    "Landing Pages",
+    "Emulation / Duplication",
+    "Marketplaces",
+    "Social Networks",
   ];
-  const appsTitles = [];
-  const gamesTitles = [
-    "Video Games",
-    "Educational / Professional Games",
-    "Board / Card Games",
+  const formsTitles = [
+    "Dynamic Forms",
+    "Paperwork Expediting",
+    "Quizzes & Analysis",
+    "Questionnaires",
   ];
-  const contactTitles = ["Via Fiverr", "Via Upwork", "Via Email"];
+  const appsTitles = [
+    "Custom Website Add-ons",
+    "Custom APIs",
+    "API Integration",
+    "Plugins",
+    "Data Management Tools",
+  ];
+  const buildersTitles = ["Shopify", "WordPress"];
+  const techTitles = [
+    "Databases",
+    "APIs",
+    "GPT3/AIs",
+    "Serverless Static Sites",
+    "Interactive / Animated",
+  ];
 
   const buttonStyle = {
     fontSize: "3rem",
@@ -234,15 +266,28 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
             />
           </motion.div>
         )}
+        {selectedPlanet === "Saturn" && (
+          <motion.div
+            exit={{ opacity: 0 }}
+            transition={{ delay: 0.25, duration: 1 }}
+          >
+            <ShuttleLaunch
+              title="Custom Calculators"
+              itemTitles={calcTitles}
+              font="Orbitron"
+              setPlanet={setSelectedPlanet}
+            />
+          </motion.div>
+        )}
         {selectedPlanet === "Moon" && (
           <motion.div
             exit={{ opacity: 0 }}
             transition={{ delay: 0.25, duration: 1 }}
           >
             <ShuttleLaunch
-              title="Calculators & Forms"
-              itemTitles={calcTitles}
-              font="Orbitron"
+              title="Forms & Data Analysis"
+              itemTitles={formsTitles}
+              font="Special Elite"
               setPlanet={setSelectedPlanet}
             />
           </motion.div>
@@ -253,21 +298,8 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
             transition={{ delay: 0.25, duration: 1 }}
           >
             <ShuttleLaunch
-              title="Quizzes & Charting"
-              itemTitles={quizTitles}
-              font="Codystar"
-              setPlanet={setSelectedPlanet}
-            />
-          </motion.div>
-        )}
-        {selectedPlanet === "Saturn" && (
-          <motion.div
-            exit={{ opacity: 0 }}
-            transition={{ delay: 0.25, duration: 1 }}
-          >
-            <ShuttleLaunch
-              title="Landing Pages"
-              itemTitles={landingTitles}
+              title="Pages & Sites"
+              itemTitles={sitesTitles}
               font="Im Fell DW Pica SC"
               setPlanet={setSelectedPlanet}
             />
@@ -279,8 +311,8 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
             transition={{ delay: 0.25, duration: 1 }}
           >
             <ShuttleLaunch
-              title="Custom Apps"
-              itemTitles={appsTitles}
+              title="Website Builders"
+              itemTitles={buildersTitles}
               font="Permanent Marker"
               setPlanet={setSelectedPlanet}
             />
@@ -292,9 +324,9 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
             transition={{ delay: 0.25, duration: 1 }}
           >
             <ShuttleLaunch
-              title="Games"
-              itemTitles={gamesTitles}
-              font="Silkscreen"
+              title="Apps & Web Components"
+              itemTitles={appsTitles}
+              font="Codystar"
               setPlanet={setSelectedPlanet}
             />
           </motion.div>
@@ -305,9 +337,9 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
             transition={{ delay: 0.25, duration: 1 }}
           >
             <ShuttleLaunch
-              title="Contact Cam"
-              itemTitles={contactTitles}
-              font="Special Elite"
+              title="Technologies"
+              itemTitles={techTitles}
+              font="Silkscreen"
               setPlanet={setSelectedPlanet}
             />
           </motion.div>
@@ -359,10 +391,31 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
           }
         >
           <Planet
+            planet="Saturn"
+            position={saturnPos}
+            title="Custom Calculators"
+            font="Orbitron"
+            setPlanet={setSelectedPlanet}
+          />
+        </motion.div>
+        <motion.div
+          drag="x"
+          dragSnapToOrigin
+          dragConstraints={{ left: 20, right: 20 }}
+          dragElastic={0.1}
+          onDragEnd={(event, info) =>
+            info.offset.x > 30
+              ? rotateLeft()
+              : info.offset.x < -30
+              ? rotateRight()
+              : null
+          }
+        >
+          <Planet
             planet="Moon"
             position={moonPos}
-            title="Calculators & Forms"
-            font="Orbitron"
+            title="Forms & Data Analysis"
+            font="Special Elite"
             setPlanet={setSelectedPlanet}
           />
         </motion.div>
@@ -382,28 +435,7 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
           <Planet
             planet="Mars"
             position={marsPos}
-            title="Quizzes & Charting"
-            font="Codystar"
-            setPlanet={setSelectedPlanet}
-          />
-        </motion.div>
-        <motion.div
-          drag="x"
-          dragSnapToOrigin
-          dragConstraints={{ left: 20, right: 20 }}
-          dragElastic={0.1}
-          onDragEnd={(event, info) =>
-            info.offset.x > 30
-              ? rotateLeft()
-              : info.offset.x < -30
-              ? rotateRight()
-              : null
-          }
-        >
-          <Planet
-            planet="Saturn"
-            position={saturnPos}
-            title="Landing Pages"
+            title="Pages & Sites"
             font="Im Fell DW Pica SC"
             setPlanet={setSelectedPlanet}
           />
@@ -424,7 +456,7 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
           <Planet
             planet="Asteroid"
             position={asteroidPos}
-            title="Custom Apps"
+            title="Website Builders"
             font="Permanent Marker"
             setPlanet={setSelectedPlanet}
           />
@@ -445,8 +477,8 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
           <Planet
             planet="Comet"
             position={cometPos}
-            title="Games"
-            font="Silkscreen"
+            title="Apps & Web Components"
+            font="Codystar"
             setPlanet={setSelectedPlanet}
           />
         </motion.div>
@@ -466,8 +498,8 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
           <Planet
             planet="SpaceStation"
             position={spaceStationPos}
-            title="Contact Cam"
-            font="Special Elite"
+            title="Technologies"
+            font="Silkscreen"
             setPlanet={setSelectedPlanet}
           />
         </motion.div>

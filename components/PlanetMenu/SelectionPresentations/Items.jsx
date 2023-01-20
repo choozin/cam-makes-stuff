@@ -28,7 +28,7 @@ const Item = ({ itemTitle, font, enableContentViewer }) => {
   );
 };
 
-const Items = ({itemTitles, font, url, enableContentViewer, selectedItemTitle, setSelectedItemTitle}) => {
+const Items = ({itemTitles, font, url, enableContentViewer, selectedItemTitle, setSelectedItemTitle, setPlanet, }) => {
   const container = {
     hidden: { opacity: 0 },
     show: {

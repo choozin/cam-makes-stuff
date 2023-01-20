@@ -176,7 +176,7 @@ const TitleContainer = ({ font, itemTitle }) => {
         left: "50vw",
       }}
     >
-      <div
+      <motion.div
         style={{
           width: "79vw",
           maxWidth: "640px",
@@ -191,7 +191,7 @@ const TitleContainer = ({ font, itemTitle }) => {
         }}
       >
         <h2>{itemTitle}</h2>
-      </div>
+      </motion.div>
     </div>
   );
 };
