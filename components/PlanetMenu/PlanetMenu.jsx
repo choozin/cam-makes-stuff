@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import ShuttleLaunch from "../../components/PlanetMenu/SelectionPresentations/ShuttleLaunch";
+import ExamplesMenu from "../../components/Examples/Menu";
 
 import ScreenSizePopup from "../Popups/ScreenSize";
 
@@ -171,6 +172,8 @@ const Planet = ({ position, planet, title, font, setPlanet }) => {
 
 const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
   const windowSize = useWindowSize();
+  
+  const [isExampleMenuVisible, setIsExampleMenuVisible] = useState('hidden');
 
   const [earthPos, setEarthPos] = useState(0);
   const [saturnPos, setSaturnPos] = useState(6);
@@ -203,10 +206,10 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
     "A Breif History of Cam",
     "Contact Cam",
     "Interests & Hobbies",
-    "Work Experience",
+    "Experience",
   ];
   const calcTitles = [
-    "Multi-Variable Calculators",
+    "Calculators",
     "Quote Generators",
     "Automated Evaluations",
     "3rd-Party Data Processing",
@@ -214,7 +217,7 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
   ];
   const sitesTitles = [
     "Landing Pages",
-    "Emulation / Duplication",
+    "Duplication",
     "Marketplaces",
     "Social Networks",
   ];
@@ -231,11 +234,11 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
     "Plugins",
     "Data Management Tools",
   ];
-  const buildersTitles = ["Shopify", "WordPress"];
+  const buildersTitles = ["Shopify", "WordPress", "Wix"];
   const techTitles = [
     "Databases",
     "APIs",
-    "GPT3/AIs",
+    "GPT3 / AIs",
     "Serverless Static Sites",
     "Interactive / Animated",
   ];
@@ -263,6 +266,8 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
               itemTitles={learnTitles}
               font="Marcellus SC"
               setPlanet={setSelectedPlanet}
+              isExampleMenuVisible={isExampleMenuVisible}
+              setIsExampleMenuVisible={() => setIsExampleMenuVisible()}
             />
           </motion.div>
         )}
@@ -276,6 +281,8 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
               itemTitles={calcTitles}
               font="Orbitron"
               setPlanet={setSelectedPlanet}
+              isExampleMenuVisible={isExampleMenuVisible}
+              setIsExampleMenuVisible={() => setIsExampleMenuVisible()}
             />
           </motion.div>
         )}
@@ -289,6 +296,8 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
               itemTitles={formsTitles}
               font="Special Elite"
               setPlanet={setSelectedPlanet}
+              isExampleMenuVisible={isExampleMenuVisible}
+              setIsExampleMenuVisible={() => setIsExampleMenuVisible()}
             />
           </motion.div>
         )}
@@ -302,6 +311,8 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
               itemTitles={sitesTitles}
               font="Im Fell DW Pica SC"
               setPlanet={setSelectedPlanet}
+              isExampleMenuVisible={isExampleMenuVisible}
+              setIsExampleMenuVisible={() => setIsExampleMenuVisible()}
             />
           </motion.div>
         )}
@@ -315,6 +326,8 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
               itemTitles={buildersTitles}
               font="Permanent Marker"
               setPlanet={setSelectedPlanet}
+              isExampleMenuVisible={isExampleMenuVisible}
+              setIsExampleMenuVisible={() => setIsExampleMenuVisible()}
             />
           </motion.div>
         )}
@@ -328,6 +341,8 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
               itemTitles={appsTitles}
               font="Codystar"
               setPlanet={setSelectedPlanet}
+              isExampleMenuVisible={isExampleMenuVisible}
+              setIsExampleMenuVisible={() => setIsExampleMenuVisible()}
             />
           </motion.div>
         )}
@@ -341,6 +356,8 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
               itemTitles={techTitles}
               font="Silkscreen"
               setPlanet={setSelectedPlanet}
+              isExampleMenuVisible={isExampleMenuVisible}
+              setIsExampleMenuVisible={() => setIsExampleMenuVisible()}
             />
           </motion.div>
         )}
@@ -604,6 +621,7 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
           \
         </motion.div>
       </div>
+      <ExamplesMenu isMenuVisible={isExampleMenuVisible} setIsMenuVisible={() => setIsExampleMenuVisible()}/>
       <ScreenSizePopup size={windowSize} />
     </div>
   );

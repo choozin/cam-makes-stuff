@@ -1,8 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 
 import { motion } from "framer-motion";
 
+import { MenuContext } from "../../../contexts/MenuContext";
+
 import useWindowSize from "../../../utilities/useWindowSize";
+
+import content from "../../../content/content";
 
 const RightArm = ({ time }) => {
   return (
@@ -96,7 +100,121 @@ const MiddleGrid = ({ side }) => {
   );
 };
 
-const ContentContainer = ({ font }) => {
+const ContentContainer = ({
+  contentTitle,
+  font,
+}) => {
+  
+  const { selectedExampleMenu, setSelectedExampleMenu } =
+    useContext(MenuContext);
+
+  const [sect0IsOpen, setSect0IsOpen] = useState(true);
+  const [sect1IsOpen, setSect1IsOpen] = useState(false);
+  const [sect2IsOpen, setSect2IsOpen] = useState(false);
+  const [sect3IsOpen, setSect3IsOpen] = useState(false);
+  const [sect4IsOpen, setSect4IsOpen] = useState(false);
+  const [sect5IsOpen, setSect5IsOpen] = useState(false);
+  const [sect6IsOpen, setSect6IsOpen] = useState(false);
+
+  const resetSectionsToBeginning = () => {
+    setSect0IsOpen(true);
+    setSect1IsOpen(false);
+    setSect2IsOpen(false);
+    setSect3IsOpen(false);
+    setSect4IsOpen(false);
+    setSect5IsOpen(false);
+    setSect6IsOpen(false);
+  };
+
+  const checkSectOpen = (pos) => {
+    switch (pos) {
+      case 0:
+        return sect0IsOpen;
+        break;
+      case 1:
+        return sect1IsOpen;
+        break;
+      case 2:
+        return sect2IsOpen;
+        break;
+      case 3:
+        return sect3IsOpen;
+        break;
+      case 4:
+        return sect4IsOpen;
+        break;
+      case 5:
+        return sect5IsOpen;
+        break;
+      case 6:
+        return sect6IsOpen;
+        break;
+    }
+  };
+
+  const openSection = (pos) => {
+    switch (pos) {
+      case 0:
+        setSect0IsOpen(true);
+        break;
+      case 1:
+        setSect1IsOpen(true);
+        break;
+      case 2:
+        setSect2IsOpen(true);
+        break;
+      case 3:
+        setSect3IsOpen(true);
+        break;
+      case 4:
+        setSect4IsOpen(true);
+        break;
+      case 5:
+        setSect5IsOpen(true);
+        break;
+      case 6:
+        setSect6IsOpen(true);
+        break;
+    }
+  };
+
+  const closeSection = (pos) => {
+    switch (pos) {
+      case 0:
+        setSect0IsOpen(false);
+        break;
+      case 1:
+        setSect1IsOpen(false);
+        break;
+      case 2:
+        setSect2IsOpen(false);
+        break;
+      case 3:
+        setSect3IsOpen(false);
+        break;
+      case 4:
+        setSect4IsOpen(false);
+        break;
+      case 5:
+        setSect5IsOpen(false);
+        break;
+      case 6:
+        setSect6IsOpen(false);
+        break;
+    }
+  };
+
+  const dropdownBtn = {
+    width: "90%",
+    marginBottom: "1.2rem",
+    padding: "1rem",
+    border: "solid 1px #0D0",
+    borderRadius: "24px",
+    textAlign: "center",
+    background: "rgba(0,0,0,0.4)",
+    color: "#0D0",
+  };
+
   return (
     <motion.div
       style={{
@@ -113,7 +231,7 @@ const ContentContainer = ({ font }) => {
     >
       <div
         style={{
-          width: "79vw",
+          width: "70%",
           maxWidth: "640px",
           height: "50vh",
           margin: "0 auto",
@@ -129,37 +247,136 @@ const ContentContainer = ({ font }) => {
             overflow: "auto",
             width: "100%",
             height: "100%",
-            paddingRight: "10vw",
+            paddingTop: " 1rem",
+            paddingRight: "4vw",
+            paddingLeft: "1vw",
+            overflowX: "hidden",
+            overflowY: "scroll",
+            fontFamily: "Tahoma",
           }}
         >
-          <h3 style={{ textAlign: "center" }}>Landing Pages</h3>
-          <p>
-            Landing pages are standalone web pages that are designed to capture
-            a visitor&apos;s attention and convert them into a lead or customer. They
-            are typically used as part of a marketing campaign and are designed
-            to be highly targeted, relevant and focused on a specific action.
-          </p>
-          <p>
-            One of the key benefits of landing pages is that they can help
-            brands and campaigns attract attention by providing a clear and
-            compelling call-to-action. This can be in the form of a sign-up
-            form, a purchase button, or a contact form. By providing a clear and
-            direct path for the visitor to take, landing pages can increase the
-            likelihood of conversion.
-          </p>
-          <p>
-            Being memorable is also an important factor in making a landing page
-            effective. A memorable landing page can stand out from the
-            competition and leave a lasting impression on the visitor. This can
-            be achieved through a unique and compelling design, engaging copy,
-            and a clear and consistent message.
-          </p>
-          <p>
-            In summary, landing pages are an effective tool for attracting
-            attention and converting visitors into leads or customers. By
-            providing a clear call-to-action and being memorable, landing pages
-            can help brands and campaigns achieve their goals.
-          </p>
+          {content.map((item) => {
+            return item.title === contentTitle
+              ? item.sections.map((section, i) => {
+                  return (
+                    <motion.div
+                      style={dropdownBtn}
+                      key={i}
+                      whileHover={{ scale: 1.02 }}
+                    >
+                      <div
+                        style={{
+                          width: "100%",
+                          height: "2rem",
+                          display: "flex",
+                          justifyContent: "space-between",
+                          fontSize: "120%",
+                          cursor: "pointer",
+                        }}
+                        onClick={() =>
+                          checkSectOpen(i) ? closeSection(i) : openSection(i)
+                        }
+                      >
+                        <div style={{ margin: "0 1rem" }} />
+                        {section.sectionTitle}
+                        <div style={{ marginRight: "1rem" }}>
+                          {checkSectOpen(i) ? (
+                            <span>&#11165;</span>
+                          ) : (
+                            <span>&#11167;</span>
+                          )}
+                        </div>
+                      </div>
+                      {checkSectOpen(i) ? (
+                        <>
+                          <div
+                            style={{
+                              fontSize: "0.9rem",
+                              width: "100%",
+                            }}
+                          >
+                            {section.sectionContent
+                              ? section.sectionContent.map((paragraph, j) => {
+                                  return <p key={j}>{paragraph}</p>;
+                                })
+                              : null}
+                          </div>
+                          <div
+                            style={{
+                              width: "100%",
+                              display: "flex",
+                              justifyContent: "space-around",
+                            }}
+                          >
+                            {section.sectionButtons &&
+                              section.sectionButtons.map((button, k) => {
+                                return (
+                                  <motion.div
+                                    key={k}
+                                    style={{
+                                      maxWidth: "100px",
+                                      height: "40px",
+                                      border: "solid 1px #0D0",
+                                      borderRadius: "8px",
+                                      background: "rgba(0,0,0,0)",
+                                      color: "#0D0",
+                                      cursor: "pointer",
+                                    }}
+                                    whileHover={{
+                                      background: "rgba(128,255,128, 0.8)",
+                                      color: "#040",
+                                    }}
+                                    whileTap={{
+                                      background: "rgba(128,255,128, 0.8)",
+                                      color: "#040",
+                                      scale: 1.05,
+                                    }}
+                                  >
+                                    {button.buttonText}
+                                  </motion.div>
+                                );
+                              })}
+                          </div>
+                        </>
+                      ) : null}
+                    </motion.div>
+                  );
+                })
+              : null;
+          })}
+          <div style={{ marginBottom: "2rem" }}>
+            <motion.div
+              style={{
+                width: "90%",
+                maxWidth: "400px",
+                height: "40px",
+                border: "solid 3px #0D0",
+                borderRadius: "8px",
+                background: "rgba(0,0,0,0)",
+                color: "#0D0",
+                cursor: "pointer",
+                margin: "0 auto",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+              whileHover={{
+                background: "rgba(128,255,128, 0.8)",
+                color: "#040",
+              }}
+              whileTap={{
+                background: "rgba(128,255,128, 0.8)",
+                color: "#040",
+                scale: 1.05,
+              }}
+              onClick={() => setSelectedExampleMenu("examples")}
+            >
+              <span>
+                Click here to check out some examples!{selectedExampleMenu}!
+              </span>
+            </motion.div>
+          </div>
         </div>
       </div>
     </motion.div>
@@ -196,7 +413,14 @@ const TitleContainer = ({ font, itemTitle }) => {
   );
 };
 
-const ContentViewer = ({ itemTitle, font, setPlanet, setContentViewerOpen }) => {
+const ContentViewer = ({
+  itemTitle,
+  font,
+  setPlanet,
+  setContentViewerOpen,
+}) => {
+  const { selectedExampleMenu, setSelectedExampleMenu } =
+    useContext(MenuContext);
   const size = useWindowSize();
 
   return (
@@ -213,7 +437,10 @@ const ContentViewer = ({ itemTitle, font, setPlanet, setContentViewerOpen }) => 
       }}
     >
       <TitleContainer font={font} itemTitle={itemTitle} />
-      <ContentContainer font={font} />
+      <ContentContainer
+        contentTitle={itemTitle}
+        font={font}
+      />
       <div
         id="layer1"
         style={{
@@ -475,13 +702,13 @@ const ContentViewer = ({ itemTitle, font, setPlanet, setContentViewerOpen }) => 
               marginRight: "0.25rem",
               borderRadius: "0.25rem",
               fontFamily: font,
-              fontWeight: 'bold',
-              color: 'white',
-              zIndex: '100',
+              fontWeight: "bold",
+              color: "white",
+              zIndex: "96",
             }}
             onClick={() => setContentViewerOpen(false)}
           >
-            Back 
+            Back
           </div>
         </div>
         <motion.div

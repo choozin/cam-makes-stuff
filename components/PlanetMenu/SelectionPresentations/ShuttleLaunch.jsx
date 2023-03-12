@@ -33,7 +33,7 @@ const MenuItem = ({ itemTitle, itemFont, url }) => {
   );
 };
 
-const ShuttleLaunch = ({ title, itemTitles, font, urls, setPlanet }) => {
+const ShuttleLaunch = ({ title, itemTitles, font, urls, setPlanet, isExampleMenuVisible, setIsExampleMenuVisible }) => {
 
   const [contentViewerOpen, setContentViewerOpen] = useState(false);
   const [selectedItemTitle, setSelectedItemTitle] = useState('None');
@@ -115,6 +115,7 @@ const ShuttleLaunch = ({ title, itemTitles, font, urls, setPlanet }) => {
               height: "200px",
             }}
           />
+          <motion.div style={{ position: 'absolute', width: '100%', height: '100%', backgroundColor: 'black'}} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 7, duration: 7}} />
         </motion.div>
 
         <motion.div
@@ -196,7 +197,7 @@ const ShuttleLaunch = ({ title, itemTitles, font, urls, setPlanet }) => {
             </motion.span>
           </div>
         </div>
-        { contentViewerOpen ? <ContentViewer font={font} itemTitle={selectedItemTitle} setPlanet={setPlanet} setContentViewerOpen={setContentViewerOpen} /> : null }
+        { contentViewerOpen ? <ContentViewer font={font} itemTitle={selectedItemTitle} setPlanet={setPlanet} setContentViewerOpen={setContentViewerOpen} isExampleMenuVisible={isExampleMenuVisible} setIsExampleMenuVisible={(x) => setIsExampleMenuVisible(x)}/> : null }
       </div>
     </AnimatePresence>
   );
