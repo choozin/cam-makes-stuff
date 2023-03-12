@@ -213,7 +213,7 @@ const ExamplesMenu = () => {
                 textAlign: "center",
               }}
             >
-              {example.title}
+              {example.title}{window.navigator.userAgent.toString()}
             </motion.span>
             <motion.div
               initial={{ opacity: 1 }}
