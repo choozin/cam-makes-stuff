@@ -7,7 +7,7 @@ function MenuProvider(props) {
   const [name, setName] = React.useState('John');
   const [age, setAge] = React.useState(30);*/
  
-  const [selectedExampleMenu, setSelectedExampleMenu] = useState('calc');
+  const [selectedExampleMenu, setSelectedExampleMenu] = useState(null);
 
   const value = {
     selectedExampleMenu,

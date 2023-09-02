@@ -370,10 +370,10 @@ const ContentContainer = ({
                 color: "#040",
                 scale: 1.05,
               }}
-              onClick={() => setSelectedExampleMenu("examples")}
+              onClick={() => setSelectedExampleMenu(contentTitle)}
             >
               <span>
-                Click here to check out some examples!{selectedExampleMenu}!
+                Click here to check out some examples!
               </span>
             </motion.div>
           </div>

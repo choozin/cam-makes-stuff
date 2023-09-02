@@ -32,7 +32,7 @@ const GoBackButton = ({
         minWidth: "300px",
         height: 'auto',
         margin: "2vw",
-        boxShadow: "0 0 0.15rem 0.15rem rgba(0,0,0,0.4) inset",
+        boxShadow: "0 0 0.5rem 0.5rem rgba(0,0,0,1) inset",
         background: "#333",
         position: "relative",
         border: "solid #B33 0.3rem",
@@ -82,40 +82,53 @@ const ExamplesMenu = () => {
 
   const examples = [
     {
-      title: "title one",
+      title: "Interior Painting Quote Calculator",
+      keywords: ['calculator', 'quote', 'materialUI', 'dynamic', 'form'],
       imgPath: "boardgame-receipt.png",
       url: "url",
-      description: "description",
+      description: "This app provides a quick quote based on a number of variables, and includes some basic styling upgrades.",
     },
     {
-      title: "title two",
-      imgPath: "click-n-grow.jpg",
-      url: "url",
-      description: "description",
-    },
-    {
-      title: "title three",
-      imgPath: "flexbox.png",
-      url: "url",
-      description: "description",
-    },
-    {
-      title: "title four",
+      title: "Business Card Generator",
+      keywords: ['framermotion', 'quote', 'materialUI', 'dynamic', 'form', 'fancy'],
       imgPath: "boardgame-receipt.png",
       url: "url",
-      description: "description",
+      description: "This fancy app allows users to customize a business card, and send the specs to a printing company.",
     },
     {
-      title: "title five",
+      title: "Construction Material Cost Calculator",
+      keywords: ['calculator', 'quote', 'dynamic', 'form', 'backend'],
       imgPath: "click-n-grow.jpg",
       url: "url",
-      description: "description",
+      description: "This simple app quickly gives the user a cost breakdown for materials, and includes a back-end where values can be edited by the admin.",
     },
     {
-      title: "title six",
+      title: "Solar Parts List Generator",
+      keywords: ['calculator', 'materialUI', 'dynamic'],
       imgPath: "flexbox.png",
       url: "url",
-      description: "description",
+      description: "This app generates a list of parts required to build an off-grid solar setup, according to user requirements.",
+    },
+    {
+      title: "Zip/Postal Code Lookup",
+      keywords: ['API', 'Maps',],
+      imgPath: "boardgame-receipt.png",
+      url: "url",
+      description: "This app connects to the Google Maps API to retrieve data based on user inputs.",
+    },
+    {
+      title: "Magician's Landing Page",
+      keywords: ['landingpage', 'framermotion', 'dynamic', 'serverless'],
+      imgPath: "click-n-grow.jpg",
+      url: "url",
+      description: "This webpage offers fans a quick and fun way to buy tickets & learn more about the magician.",
+    },
+    {
+      title: "Travel Blog Landing Page",
+      keywords: ['landingpage', 'video', 'serverless'],
+      imgPath: "flexbox.png",
+      url: "url",
+      description: "This simple landing page funnels users toward a call to action.",
     },
   ];
 
@@ -160,14 +173,14 @@ const ExamplesMenu = () => {
         display: selectedExampleMenu ? 'flex' : 'none',
         flexWrap: "wrap",
         overflow: "scroll",
-        backdropFilter: isMobile ? null : "blur(9px)",
+        backdropFilter: "blur(9px)",
       }}
     >
       <GoBackButton
         hoveredExample
         setHoveredExample={() => setHoveredExample()}
       />
-      {examples.map((example) => {
+      {examples.sort((a, b) => (a.title > b.title) ? 1 : -1).map((example) => {
         return (
           <motion.div
             variants={childVariants}
@@ -178,12 +191,13 @@ const ExamplesMenu = () => {
             whileTap={{}}
             onMouseEnter={() => setHoveredExample(example.title)}
             onMouseLeave={() => setHoveredExample(null)}
+            onClick={() => setSelectedExample(example.title)}
             key={example.title}
             style={{
               flexGrow: "1",
               minWidth: "300px",
-              minHeight: "200px",
-              margin: "2vw",
+              minHeight: "300px",
+              margin: "1.5vw",
               boxShadow: "0 0 0.15rem 0.15rem rgba(0,0,0,0.4) inset",
               backgroundImage: "url('/img/examples/" + example.imgPath + "')",
               backgroundSize: "auto auto",
@@ -204,16 +218,42 @@ const ExamplesMenu = () => {
               style={{
                 color: "white",
                 textShadow:
-                  "1px 1px 0 black, -1px 1px 0 black, 1px -1px 0 black, -1px -1px 0 black",
-                fontSize: "4rem",
+                  "1px 1px 1px black, -1px 1px 1px black, 1px -1px 1px black, -1px -1px 1px black",
+                fontSize: "3rem",
                 fontFamily: "Tahoma",
                 position: "absolute",
-                top: "30%",
-                width: "100%",
+                left: '2%',
+                top: '2%',
+                width: "96%",
+                height: '96%',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
                 textAlign: "center",
               }}
             >
-              {example.title}{window.navigator.userAgent.toString()}
+              {example.title}<br/>
+              <span style={{fontSize: '1rem'}}>{example.description}</span><br/>
+              <div style={{
+                minWidth: '100px',
+                minHeight: '50px',
+                background: 'white',
+                border: 'solid 2px black',
+                borderRadius: '1rem',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                fontSize: '1.5rem',
+                padding: '0 0.5rem',
+                marginTop: '-3rem',
+                cursor: 'pointer',
+                zIndex: 1,
+              }}
+              onClick={() => alert('Going to: '+ example.url +'!')}>
+                <span>Proceed</span>
+              </div>
             </motion.span>
             <motion.div
               initial={{ opacity: 1 }}
@@ -230,17 +270,18 @@ const ExamplesMenu = () => {
                 width: "100%",
                 height: "100%",
                 backgroundColor: "rgba(0,0,0,0.2)",
-                backdropFilter: "blur(1px)",
+                backdropFilter: isMobile ? null : "blur(1px)",
               }}
             >
               <span
                 style={{
-                  fontSize: "2rem",
+                  fontSize: "1.5rem",
                   fontFamily: "Tahoma",
-                  color: "white",
+                  fontWeight: 'bold',
+                  color: "#FFF",
                   textShadow:
-                    "1px 1px black, -1px 1px black, 1px -1px black, -1px =1px black, ",
-                  opacity: 0.7,
+                    "1px 1px black, -1px 1px black, 1px -1px black, -1px -1px black",
+                  opacity: 0.8,
                   margin: "0.5rem",
                 }}
               >

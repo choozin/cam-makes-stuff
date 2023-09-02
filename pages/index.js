@@ -29,6 +29,11 @@ import "@fontsource/codystar"; //
 import "@fontsource/odibee-sans";
 import "@fontsource/covered-by-your-grace"; //
 import "@fontsource/orbitron"; //
+import "@fontsource/roboto";
+import "@fontsource/manrope";
+import "@fontsource/maven-pro";
+import "@fontsource/bakbak-one";
+import "@fontsource/great-vibes";
 
 const DynamicPlanetMenu = dynamic(
   () => import("../components/PlanetMenu/PlanetMenu"),
