@@ -6,7 +6,7 @@ import Items from "./Items";
 import SpaceShuttle from "../../../public/svg/space-shuttle.svg";
 import ContentViewer from "./ContentViewer";
 
-const MenuItem = ({ itemTitle, itemFont, url }) => {
+const MenuItem = ({ itemTitle, itemFont, url, }) => {
   const item = {
     hidden: { opacity: 0 },
     show: { opacity: 1 },
@@ -33,13 +33,14 @@ const MenuItem = ({ itemTitle, itemFont, url }) => {
   );
 };
 
-const ShuttleLaunch = ({ title, itemTitles, font, urls, setPlanet, isExampleMenuVisible, setIsExampleMenuVisible }) => {
+const ShuttleLaunch = ({ title, itemTitles, font, urls, setPlanet, isExampleMenuVisible, setIsExampleMenuVisible, checkForSpecialComponent }) => {
 
   const [contentViewerOpen, setContentViewerOpen] = useState(false);
-  const [selectedItemTitle, setSelectedItemTitle] = useState('None');
+  const [selectedItemTitle, setSelectedItemTitle] = useState('Item title not found.');
 
   const enableContentViewer = (itemTitle) => {
-    setContentViewerOpen(true);
+    !checkForSpecialComponent(itemTitle) && 
+    setContentViewerOpen(true) && 
     setSelectedItemTitle(itemTitle)
   }
 

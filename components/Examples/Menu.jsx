@@ -117,7 +117,7 @@ const ExamplesMenu = () => {
       description: "This app connects to the Google Maps API to retrieve data based on user inputs.",
     },
     {
-      title: "Magician's Landing Page",
+      title: "Printer's Landing Page",
       keywords: ['landingpage', 'framermotion', 'dynamic', 'serverless'],
       imgPath: "click-n-grow.jpg",
       url: "url",
@@ -126,6 +126,13 @@ const ExamplesMenu = () => {
     {
       title: "Travel Blog Landing Page",
       keywords: ['landingpage', 'video', 'serverless'],
+      imgPath: "flexbox.png",
+      url: "url",
+      description: "This simple landing page funnels users toward a call to action.",
+    },
+    {
+      title: "My Boardgame Website",
+      keywords: ['website', 'dynamic', 'serverless'],
       imgPath: "flexbox.png",
       url: "url",
       description: "This simple landing page funnels users toward a call to action.",

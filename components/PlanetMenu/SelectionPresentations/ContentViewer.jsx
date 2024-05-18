@@ -104,7 +104,7 @@ const ContentContainer = ({
   contentTitle,
   font,
 }) => {
-  
+
   const { selectedExampleMenu, setSelectedExampleMenu } =
     useContext(MenuContext);
 
@@ -247,7 +247,7 @@ const ContentContainer = ({
             overflow: "auto",
             width: "100%",
             height: "100%",
-            paddingTop: " 1rem",
+            paddingTop: " 0rem",
             paddingRight: "4vw",
             paddingLeft: "1vw",
             overflowX: "hidden",
@@ -257,7 +257,25 @@ const ContentContainer = ({
         >
           {content.map((item) => {
             return item.title === contentTitle
-              ? item.sections.map((section, i) => {
+              ?
+              <>
+                <div
+                  style={{
+                    width: "80%",
+                    fontSize: "100%",
+                    cursor: "pointer",
+                    margin: "0 0 1rem 0",
+                    margin: '0 auto',
+                    textAlign: 'center',
+                  }}
+                >
+                  {item.content
+                    ? item.content.map((paragraph, j) => {
+                      return <p key={j}>{paragraph}</p>;
+                    })
+                    : null}
+                </div>
+                {item.sections.map((section, i) => {
                   return (
                     <motion.div
                       style={dropdownBtn}
@@ -297,8 +315,8 @@ const ContentContainer = ({
                           >
                             {section.sectionContent
                               ? section.sectionContent.map((paragraph, j) => {
-                                  return <p key={j}>{paragraph}</p>;
-                                })
+                                return <p key={j}>{paragraph}</p>;
+                              })
                               : null}
                           </div>
                           <div
@@ -341,7 +359,8 @@ const ContentContainer = ({
                       ) : null}
                     </motion.div>
                   );
-                })
+                })}
+              </>
               : null;
           })}
           <div style={{ marginBottom: "2rem" }}>

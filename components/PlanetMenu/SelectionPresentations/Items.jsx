@@ -13,7 +13,7 @@ const Item = ({ itemTitle, font, enableContentViewer }) => {
       color: 'white', 
       fontFamily: font,
       fontSize: '1.7rem',
-      padding: '1rem',
+      padding: '2rem',
       textShadow: '0rem 0rem 1rem black, 0rem 0rem 1rem black, 0rem 0rem 1rem black, 0rem 0rem 1rem black',
       cursor: 'pointer',
       textAlign: 'center',

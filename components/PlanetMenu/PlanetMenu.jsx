@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import ShuttleLaunch from "../../components/PlanetMenu/SelectionPresentations/ShuttleLaunch";
 import ExamplesMenu from "../../components/Examples/Menu";
+import Introduction from "../../components/Introduction/Introduction";
 
 import ScreenSizePopup from "../Popups/ScreenSize";
 
@@ -50,31 +51,31 @@ const Planet = ({ position, planet, title, font, setPlanet }) => {
           position === 0
             ? "front"
             : position === 1
-            ? "frontLeft"
-            : position === 2
-            ? "left"
-            : position === 3
-            ? "backLeft"
-            : position === 4
-            ? "backRight"
-            : position === 5
-            ? "right"
-            : "frontRight"
+              ? "frontLeft"
+              : position === 2
+                ? "left"
+                : position === 3
+                  ? "backLeft"
+                  : position === 4
+                    ? "backRight"
+                    : position === 5
+                      ? "right"
+                      : "frontRight"
         }
         animate={
           position === 0
             ? "front"
             : position === 1
-            ? "frontLeft"
-            : position === 2
-            ? "left"
-            : position === 3
-            ? "backLeft"
-            : position === 4
-            ? "backRight"
-            : position === 5
-            ? "right"
-            : "frontRight"
+              ? "frontLeft"
+              : position === 2
+                ? "left"
+                : position === 3
+                  ? "backLeft"
+                  : position === 4
+                    ? "backRight"
+                    : position === 5
+                      ? "right"
+                      : "frontRight"
         }
         variants={variants}
         transition={{
@@ -172,8 +173,9 @@ const Planet = ({ position, planet, title, font, setPlanet }) => {
 
 const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
   const windowSize = useWindowSize();
-  
+
   const [isExampleMenuVisible, setIsExampleMenuVisible] = useState('hidden');
+  const [isIntroductionOpen, setIsIntroductionOpen] = useState(false);
 
   const [earthPos, setEarthPos] = useState(0);
   const [saturnPos, setSaturnPos] = useState(6);
@@ -202,45 +204,58 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
     setSpaceStationPos(spaceStationPos > 0 ? spaceStationPos - 1 : 6);
   };
 
+
+  const checkForSpecialComponent = (title) => {
+    title === "Introduction" ? setIsIntroductionOpen(true) : setIsIntroductionOpen(false)
+    return title === "Introduction" ? true : false
+
+
+    return title === "Society - the Boardgame" ? true : false;
+  }
+
   const learnTitles = [
-    "A Breif History of Cam",
-    "Contact Cam",
-    "Interests & Hobbies",
-    "Experience",
+    "Introduction",
+    "A Brief History of Cam",
+    "Cam's Interests & Hobbies",
+    "Cam's Experience",
   ];
-  const calcTitles = [
+  const toolsTitles = [
     "Calculators",
     "Quote Generators",
-    "Automated Evaluations",
-    "3rd-Party Data Processing",
-    "Data Charting",
+    "Questionnaires",
+    "Data Processing & Charting",
+    "Dynamic Forms & Paperwork Expediting",
   ];
   const sitesTitles = [
     "Landing Pages",
     "Duplication",
-    "Marketplaces",
-    "Social Networks",
+    "Website Upgrades",
+    "Full Sites & eCommerce",
   ];
-  const formsTitles = [
-    "Dynamic Forms",
-    "Paperwork Expediting",
-    "Quizzes & Analysis",
-    "Questionnaires",
+  const contactTitles = [
+    "Facebook",
+    "LinkedIn",
+    "Email",
   ];
-  const appsTitles = [
-    "Custom Website Add-ons",
-    "Custom APIs",
-    "API Integration",
-    "Plugins",
-    "Data Management Tools",
+  const otherCoolStuffTitles = [
+    "Society - the Boardgame",
+    "Trip Blog",
+    "Upcoming Projects",
   ];
-  const buildersTitles = ["Shopify", "WordPress", "Wix"];
-  const techTitles = [
-    "Databases",
+  const otherDigitalServicesTitles = [
+    "Custom Plugins",
+    "Graphics & Design",
     "APIs",
-    "GPT3 / AIs",
-    "Serverless Static Sites",
-    "Interactive / Animated",
+    "Artificial Intelligence",
+    "SEO & Page Insights",
+    "CMS & Page Builders",
+    "Hosting & Site Management",
+  ];
+  const techTitles = [
+    "NextJS & Jamstack",
+    "ReactJS",
+    "Realtime NoSQL Databases",
+    "Animations & Interactivity",
   ];
 
   const buttonStyle = {
@@ -268,6 +283,7 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
               setPlanet={setSelectedPlanet}
               isExampleMenuVisible={isExampleMenuVisible}
               setIsExampleMenuVisible={() => setIsExampleMenuVisible()}
+              checkForSpecialComponent={checkForSpecialComponent}
             />
           </motion.div>
         )}
@@ -277,8 +293,8 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
             transition={{ delay: 0.25, duration: 1 }}
           >
             <ShuttleLaunch
-              title="Custom Calculators"
-              itemTitles={calcTitles}
+              title="Custom Business Tools"
+              itemTitles={toolsTitles}
               font="Orbitron"
               setPlanet={setSelectedPlanet}
               isExampleMenuVisible={isExampleMenuVisible}
@@ -292,8 +308,8 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
             transition={{ delay: 0.25, duration: 1 }}
           >
             <ShuttleLaunch
-              title="Forms & Data Analysis"
-              itemTitles={formsTitles}
+              title="Contact Cam"
+              itemTitles={contactTitles}
               font="Special Elite"
               setPlanet={setSelectedPlanet}
               isExampleMenuVisible={isExampleMenuVisible}
@@ -322,8 +338,8 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
             transition={{ delay: 0.25, duration: 1 }}
           >
             <ShuttleLaunch
-              title="Website Builders"
-              itemTitles={buildersTitles}
+              title="Other Digital Services"
+              itemTitles={otherDigitalServicesTitles}
               font="Permanent Marker"
               setPlanet={setSelectedPlanet}
               isExampleMenuVisible={isExampleMenuVisible}
@@ -337,8 +353,8 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
             transition={{ delay: 0.25, duration: 1 }}
           >
             <ShuttleLaunch
-              title="Apps & Web Components"
-              itemTitles={appsTitles}
+              title="Cool Stuff"
+              itemTitles={otherCoolStuffTitles}
               font="Codystar"
               setPlanet={setSelectedPlanet}
               isExampleMenuVisible={isExampleMenuVisible}
@@ -382,8 +398,8 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
             info.offset.x > 30
               ? rotateLeft()
               : info.offset.x < -30
-              ? rotateRight()
-              : null
+                ? rotateRight()
+                : null
           }
         >
           <Planet
@@ -403,14 +419,14 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
             info.offset.x > 30
               ? rotateLeft()
               : info.offset.x < -30
-              ? rotateRight()
-              : null
+                ? rotateRight()
+                : null
           }
         >
           <Planet
             planet="Saturn"
             position={saturnPos}
-            title="Custom Calculators"
+            title="Custom Business Tools"
             font="Orbitron"
             setPlanet={setSelectedPlanet}
           />
@@ -424,14 +440,14 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
             info.offset.x > 30
               ? rotateLeft()
               : info.offset.x < -30
-              ? rotateRight()
-              : null
+                ? rotateRight()
+                : null
           }
         >
           <Planet
             planet="Moon"
             position={moonPos}
-            title="Forms & Data Analysis"
+            title="Contact Cam"
             font="Special Elite"
             setPlanet={setSelectedPlanet}
           />
@@ -445,8 +461,8 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
             info.offset.x > 30
               ? rotateLeft()
               : info.offset.x < -30
-              ? rotateRight()
-              : null
+                ? rotateRight()
+                : null
           }
         >
           <Planet
@@ -466,14 +482,14 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
             info.offset.x > 30
               ? rotateLeft()
               : info.offset.x < -30
-              ? rotateRight()
-              : null
+                ? rotateRight()
+                : null
           }
         >
           <Planet
             planet="Asteroid"
             position={asteroidPos}
-            title="Website Builders"
+            title="Other Digital Services"
             font="Permanent Marker"
             setPlanet={setSelectedPlanet}
           />
@@ -487,14 +503,14 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
             info.offset.x > 30
               ? rotateLeft()
               : info.offset.x < -30
-              ? rotateRight()
-              : null
+                ? rotateRight()
+                : null
           }
         >
           <Planet
             planet="Comet"
             position={cometPos}
-            title="Apps & Web Components"
+            title="Cool Stuff"
             font="Codystar"
             setPlanet={setSelectedPlanet}
           />
@@ -508,8 +524,8 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
             info.offset.x > 30
               ? rotateLeft()
               : info.offset.x < -30
-              ? rotateRight()
-              : null
+                ? rotateRight()
+                : null
           }
         >
           <Planet
@@ -621,7 +637,8 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
           \
         </motion.div>
       </div>
-      <ExamplesMenu isMenuVisible={isExampleMenuVisible} setIsMenuVisible={() => setIsExampleMenuVisible()}/>
+      <Introduction isIntroductionOpen={isIntroductionOpen} setIsIntroductionOpen={() => setIsIntroductionOpen()} />
+      <ExamplesMenu isMenuVisible={isExampleMenuVisible} setIsMenuVisible={() => setIsExampleMenuVisible()} />
       <ScreenSizePopup size={windowSize} />
     </div>
   );
