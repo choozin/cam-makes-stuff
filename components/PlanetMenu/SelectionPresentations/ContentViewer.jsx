@@ -724,6 +724,7 @@ const ContentViewer = ({
               fontWeight: "bold",
               color: "white",
               zIndex: "96",
+              cursor: 'pointer',
             }}
             onClick={() => setContentViewerOpen(false)}
           >
@@ -781,6 +782,9 @@ const ContentViewer = ({
                 alignItems: "center",
                 marginLeft: "0.25rem",
                 borderRadius: "0.25rem",
+                fontFamily: font,
+                color: 'white',
+                cursor: 'pointer',
               }}
             >
               Proceed

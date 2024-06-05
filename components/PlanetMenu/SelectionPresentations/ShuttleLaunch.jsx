@@ -39,7 +39,7 @@ const ShuttleLaunch = ({ title, itemTitles, font, urls, setPlanet, isExampleMenu
   const [selectedItemTitle, setSelectedItemTitle] = useState('Item title not found.');
 
   const enableContentViewer = (itemTitle) => {
-    !checkForSpecialComponent(itemTitle) && 
+    //!checkForSpecialComponent(itemTitle) && 
     setContentViewerOpen(true) && 
     setSelectedItemTitle(itemTitle)
   }

@@ -30,7 +30,7 @@ const WhiteBackground = ({ toggleCentered }) => {
         left: "-3vw",
         width: "106vw",
         height: "106vh",
-        zIndex: "95",
+        zIndex: "98",
         backgroundImage: "url('/textures/graphy.png')",
         backgroundColor: "#004",
         display: "flex",

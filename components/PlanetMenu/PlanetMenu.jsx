@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+
+import { GeneralContext } from "../../contexts/generalContext";
 
 import ShuttleLaunch from "../../components/PlanetMenu/SelectionPresentations/ShuttleLaunch";
 import ExamplesMenu from "../../components/Examples/Menu";
-import Introduction from "../../components/Introduction/Introduction";
 
 import ScreenSizePopup from "../Popups/ScreenSize";
 
@@ -19,6 +20,8 @@ import Moon from "../../public/svg/moon.svg";
 import Sun from "../../public/svg/sun.svg";
 import Satellite from "../../public/svg/satellite.svg";
 import SpaceShip from "../../public/svg/spaceship1.svg";
+
+import Starfield from "../../components/Starfield/Starfield";
 
 const Planet = ({ position, planet, title, font, setPlanet }) => {
   const variants = {
@@ -51,31 +54,31 @@ const Planet = ({ position, planet, title, font, setPlanet }) => {
           position === 0
             ? "front"
             : position === 1
-              ? "frontLeft"
-              : position === 2
-                ? "left"
-                : position === 3
-                  ? "backLeft"
-                  : position === 4
-                    ? "backRight"
-                    : position === 5
-                      ? "right"
-                      : "frontRight"
+            ? "frontLeft"
+            : position === 2
+            ? "left"
+            : position === 3
+            ? "backLeft"
+            : position === 4
+            ? "backRight"
+            : position === 5
+            ? "right"
+            : "frontRight"
         }
         animate={
           position === 0
             ? "front"
             : position === 1
-              ? "frontLeft"
-              : position === 2
-                ? "left"
-                : position === 3
-                  ? "backLeft"
-                  : position === 4
-                    ? "backRight"
-                    : position === 5
-                      ? "right"
-                      : "frontRight"
+            ? "frontLeft"
+            : position === 2
+            ? "left"
+            : position === 3
+            ? "backLeft"
+            : position === 4
+            ? "backRight"
+            : position === 5
+            ? "right"
+            : "frontRight"
         }
         variants={variants}
         transition={{
@@ -84,6 +87,7 @@ const Planet = ({ position, planet, title, font, setPlanet }) => {
           damping: "7",
         }}
         whileHover={{ scale: 1.9 }}
+        whileTap={{ scale: 1.4 }}
       >
         {(planet === "Earth" && (
           <PlanetEarth style={{ width: "100px", height: "100px" }} />
@@ -172,9 +176,10 @@ const Planet = ({ position, planet, title, font, setPlanet }) => {
 };
 
 const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
+  const { term, setTerm, updateTerm } = useContext(GeneralContext);
   const windowSize = useWindowSize();
 
-  const [isExampleMenuVisible, setIsExampleMenuVisible] = useState('hidden');
+  const [isExampleMenuVisible, setIsExampleMenuVisible] = useState("hidden");
   const [isIntroductionOpen, setIsIntroductionOpen] = useState(false);
 
   const [earthPos, setEarthPos] = useState(0);
@@ -185,6 +190,18 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
   const [asteroidPos, setAsteroidPos] = useState(2);
   const [spaceStationPos, setSpaceStationPos] = useState(1);
 
+  const [menuMotion, setMenuMotion] = useState(null);
+
+  useEffect(() => {
+    if (menuMotion !== null) {
+      const timer = setTimeout(() => {
+        setMenuMotion(null);
+      }, 1000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [menuMotion]);
+
   const rotateRight = () => {
     setEarthPos(earthPos < 6 ? earthPos + 1 : 0);
     setMarsPos(marsPos < 6 ? marsPos + 1 : 0);
@@ -193,6 +210,7 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
     setAsteroidPos(asteroidPos < 6 ? asteroidPos + 1 : 0);
     setCometPos(cometPos < 6 ? cometPos + 1 : 0);
     setSpaceStationPos(spaceStationPos < 6 ? spaceStationPos + 1 : 0);
+    setMenuMotion("right");
   };
   const rotateLeft = () => {
     setEarthPos(earthPos > 0 ? earthPos - 1 : 6);
@@ -202,16 +220,17 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
     setAsteroidPos(asteroidPos > 0 ? asteroidPos - 1 : 6);
     setCometPos(cometPos > 0 ? cometPos - 1 : 6);
     setSpaceStationPos(spaceStationPos > 0 ? spaceStationPos - 1 : 6);
+    setMenuMotion("left");
   };
 
-
   const checkForSpecialComponent = (title) => {
-    title === "Introduction" ? setIsIntroductionOpen(true) : setIsIntroductionOpen(false)
-    return title === "Introduction" ? true : false
-
+    title === "Introduction"
+      ? setIsIntroductionOpen(true)
+      : setIsIntroductionOpen(false);
+    return title === "Introduction" ? true : false;
 
     return title === "Society - the Boardgame" ? true : false;
-  }
+  };
 
   const learnTitles = [
     "Introduction",
@@ -232,11 +251,7 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
     "Website Upgrades",
     "Full Sites & eCommerce",
   ];
-  const contactTitles = [
-    "Facebook",
-    "LinkedIn",
-    "Email",
-  ];
+  const contactTitles = ["Facebook", "LinkedIn", "Email"];
   const otherCoolStuffTitles = [
     "Society - the Boardgame",
     "Trip Blog",
@@ -262,10 +277,13 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
     fontSize: "3rem",
     width: "20vw",
     padding: "0.75rem",
-    background: "#ffe254",
+    backgroundImage: "url('/textures/real-carbon-fibre.png')",
+    backgroundColor: "#ffe254",
     border: "none",
     borderRadius: "1rem",
     margin: "0.5rem",
+    boxShadow:
+      "8px 8px 4px rgba(255, 235, 128, 0.8) inset, -8px -8px 4px rgba(180, 140, 60, 0.8) inset",
   };
 
   return (
@@ -379,16 +397,40 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
         )}
       </AnimatePresence>
       <div>
-        <Sun
+        <div style={{
+          position: 'absolute',
+          width: '100vw',
+          height: '100vh',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+        <motion.div
+          animate={{
+            rotate: [180, 0, 90, 0, 170, 0, 90, 0],
+          }}
+          transition={{
+            duration: 88,
+            repeat: "infinity",
+            repeatType: "loop",
+          }}
           style={{
-            position: "absolute",
-            left: "43vw",
-            top: "38vh",
             width: "14vw",
+            minWidth: '150px',
             height: "14vw",
+            minHeight: '150px',
             zIndex: "75",
           }}
-        />
+        >
+          <Sun
+            style={{
+              width: "100%",
+              height: "100%",
+            }}
+          />
+        </motion.div>
+        </div>
         <motion.div
           drag="x"
           dragSnapToOrigin
@@ -398,8 +440,8 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
             info.offset.x > 30
               ? rotateLeft()
               : info.offset.x < -30
-                ? rotateRight()
-                : null
+              ? rotateRight()
+              : null
           }
         >
           <Planet
@@ -419,8 +461,8 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
             info.offset.x > 30
               ? rotateLeft()
               : info.offset.x < -30
-                ? rotateRight()
-                : null
+              ? rotateRight()
+              : null
           }
         >
           <Planet
@@ -440,8 +482,8 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
             info.offset.x > 30
               ? rotateLeft()
               : info.offset.x < -30
-                ? rotateRight()
-                : null
+              ? rotateRight()
+              : null
           }
         >
           <Planet
@@ -461,8 +503,8 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
             info.offset.x > 30
               ? rotateLeft()
               : info.offset.x < -30
-                ? rotateRight()
-                : null
+              ? rotateRight()
+              : null
           }
         >
           <Planet
@@ -482,8 +524,8 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
             info.offset.x > 30
               ? rotateLeft()
               : info.offset.x < -30
-                ? rotateRight()
-                : null
+              ? rotateRight()
+              : null
           }
         >
           <Planet
@@ -503,8 +545,8 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
             info.offset.x > 30
               ? rotateLeft()
               : info.offset.x < -30
-                ? rotateRight()
-                : null
+              ? rotateRight()
+              : null
           }
         >
           <Planet
@@ -524,8 +566,8 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
             info.offset.x > 30
               ? rotateLeft()
               : info.offset.x < -30
-                ? rotateRight()
-                : null
+              ? rotateRight()
+              : null
           }
         >
           <Planet
@@ -553,7 +595,7 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
           onClick={() => rotateLeft()}
           initial={{ opacity: 0.75, scale: 0.95 }}
           whileHover={{ opacity: 1, scale: 1 }}
-          whileTap={{ opacity: 1, scale: 1.05 }}
+          whileTap={{ opacity: 1, scale: 0.9 }}
         >
           &#8592;
         </motion.button>
@@ -562,7 +604,7 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
           onClick={() => rotateRight()}
           initial={{ opacity: 0.75, scale: 0.95 }}
           whileHover={{ opacity: 1, scale: 1 }}
-          whileTap={{ opacity: 1, scale: 1.05 }}
+          whileTap={{ opacity: 1, scale: 0.9 }}
         >
           &#8594;
         </motion.button>
@@ -637,9 +679,111 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
           \
         </motion.div>
       </div>
-      <Introduction isIntroductionOpen={isIntroductionOpen} setIsIntroductionOpen={() => setIsIntroductionOpen()} />
-      <ExamplesMenu isMenuVisible={isExampleMenuVisible} setIsMenuVisible={() => setIsExampleMenuVisible()} />
+      <ExamplesMenu
+        isMenuVisible={isExampleMenuVisible}
+        setIsMenuVisible={() => setIsExampleMenuVisible()}
+      />
       <ScreenSizePopup size={windowSize} />
+      <motion.div
+        animate={{
+          x: ["-4%", "4%"],
+        }}
+        transition={{
+          duration: 180,
+          repeat: "Infinity",
+          repeatType: "reverse",
+          ease: [0.2, 0, 0.8, 1],
+        }}
+        style={{
+          zIndex: 1,
+          width: "200%",
+          height: "100%",
+          left: "-50%",
+          position: "absolute",
+        }}
+      >
+        <Starfield numStars={windowSize.width / 7} starScale={1} />
+      </motion.div>
+      <motion.div
+        animate={{
+          x: ["-7%", "7%"],
+        }}
+        transition={{
+          duration: 180,
+          repeat: "Infinity",
+          repeatType: "reverse",
+          ease: [0.2, 0, 0.8, 1],
+        }}
+        style={{
+          zIndex: 1,
+          width: "200%",
+          height: "100%",
+          left: "-50%",
+          position: "absolute",
+        }}
+      >
+        <Starfield numStars={windowSize.width / 8} starScale={2} />
+      </motion.div>
+      <motion.div
+        animate={{
+          x: ["-12%", "12%"],
+        }}
+        transition={{
+          duration: 180,
+          repeat: "Infinity",
+          repeatType: "reverse",
+          ease: [0.2, 0, 0.8, 1],
+        }}
+        style={{
+          zIndex: 1,
+          width: "200%",
+          height: "100%",
+          left: "-50%",
+          position: "absolute",
+        }}
+      >
+        <Starfield numStars={windowSize.width / 4} starScale={1} />
+      </motion.div>
+      <motion.div
+        animate={{
+          x: ["-17%", "17%"],
+        }}
+        transition={{
+          duration: 180,
+          repeat: "Infinity",
+          repeatType: "reverse",
+          ease: [0.2, 0, 0.8, 1],
+        }}
+        style={{
+          zIndex: 1,
+          width: "200%",
+          height: "100%",
+          left: "-50%",
+          position: "absolute",
+        }}
+      >
+        <Starfield numStars={windowSize.width / 12} starScale={3} />
+      </motion.div>
+      <motion.div
+        animate={{
+          x: ["-25%", "25%"],
+        }}
+        transition={{
+          duration: 180,
+          repeat: "Infinity",
+          repeatType: "reverse",
+          ease: [0.2, 0, 0.8, 1],
+        }}
+        style={{
+          zIndex: 1,
+          width: "200%",
+          height: "100%",
+          left: "-50%",
+          position: "absolute",
+        }}
+      >
+        <Starfield numStars={windowSize.width / 7} starScale={3} />
+      </motion.div>
     </div>
   );
 };
