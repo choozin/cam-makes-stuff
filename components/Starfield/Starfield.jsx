@@ -38,7 +38,7 @@ const Starfield = ({ numStars = 300, starScale = 1 }) => {
   ];
 
   useEffect(() => {
-    const starfield = starfieldRef.current;
+    /*const starfield = starfieldRef.current;
     for (let i = 0; i < numStars; i++) {
       const star = document.createElement("div");
       star.classList.add("star");
@@ -52,7 +52,7 @@ const Starfield = ({ numStars = 300, starScale = 1 }) => {
       star.style.opacity = `${Math.random() * 50 + 50}%`;
       //star.style.zIndex = `100`;
       starfield.appendChild(star);
-    }
+    }*/
   }, [numStars, colors, starScale]);
 
   return (
