@@ -692,7 +692,7 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
           duration: 180,
           repeat: "Infinity",
           repeatType: "reverse",
-          ease: [0.2, 0, 0.8, 1],
+          ease: [0.8, 0, 0.2, 1],
         }}
         style={{
           zIndex: 1,
@@ -712,7 +712,7 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
           duration: 180,
           repeat: "Infinity",
           repeatType: "reverse",
-          ease: [0.2, 0, 0.8, 1],
+          ease: [0.8, 0, 0.2, 1],
         }}
         style={{
           zIndex: 1,
@@ -732,7 +732,7 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
           duration: 180,
           repeat: "Infinity",
           repeatType: "reverse",
-          ease: [0.2, 0, 0.8, 1],
+          ease: [0.8, 0, 0.2, 1],
         }}
         style={{
           zIndex: 1,
@@ -752,7 +752,7 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
           duration: 180,
           repeat: "Infinity",
           repeatType: "reverse",
-          ease: [0.2, 0, 0.8, 1],
+          ease: [0.8, 0, 0.2, 1],
         }}
         style={{
           zIndex: 1,
@@ -772,7 +772,7 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
           duration: 180,
           repeat: "Infinity",
           repeatType: "reverse",
-          ease: [0.2, 0, 0.8, 1],
+          ease: [0.8, 0, 0.2, 1],
         }}
         style={{
           zIndex: 1,
@@ -782,7 +782,7 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
           position: "absolute",
         }}
       >
-        <Starfield numStars={windowSize.width / 7} starScale={3} />
+        <Starfield numStars={windowSize.width / 16} starScale={3} />
       </motion.div>
     </div>
   );
