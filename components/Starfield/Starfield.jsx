@@ -53,7 +53,7 @@ const Starfield = ({ numStars = 300, starScale = 1 }) => {
       //star.style.zIndex = `100`;
       starfield.appendChild(star);
     }
-  }, [numStars, colors]);
+  }, [numStars, colors, starScale]);
 
   return (
     <div

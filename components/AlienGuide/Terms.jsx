@@ -163,7 +163,7 @@ const Terms = ({ term, setTerm }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.3 }}
           >
-            I'm Cam, a Web Developer from Canada who specializes in developing
+            I&apos;m Cam, a Web Developer from Canada who specializes in developing
             custom digital products for businesses & organizations who are looking to take their operations to the next level.
           </motion.p>
           <motion.p
@@ -229,7 +229,7 @@ const Terms = ({ term, setTerm }) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 1.3 }}
             >
-              I'm Cam, a Web Developer from Canada who specializes in developing
+              I&apos;m Cam, a Web Developer from Canada who specializes in developing
               custom digital products for small and medium-sized businesses.
             </motion.p>
             <motion.p
