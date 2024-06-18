@@ -99,11 +99,23 @@ const Logo = ({selectedPlanet, setSelectedPlanet}) => {
       transition={{ duration: 1, delay: 1, spring: 10 }}
     >
       <WhiteBackground toggleCentered={() => setIsCentered()} />
-      <div style={{ zIndex: '99', color: 'white', display: 'flex', flexDirection: 'column', alignItems: 'center', fontSize: '4rem', }}>
-        <span>Cam's</span>
-        <span>Cosmic</span>
-        <span>Code</span>
-      </div>
+      <motion.div
+        style={{
+          zIndex: "99",
+          width: "280px",
+          height: "280px",
+          maxHeight: "50vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+        whileHover={{ scale: !isCentered && 1.05 }}
+        whileTap={{ scale: !isCentered && 0.9 }}
+        onClick={() => setSelectedPlanet('None')/*location.href = 'http://cammakesstuff.com'*/}
+      >
+        <CamMakesStuffLogo />
+      </motion.div>
     </motion.div>
   );
 };

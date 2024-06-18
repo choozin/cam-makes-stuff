@@ -39,8 +39,7 @@ const ShuttleLaunch = ({ title, itemTitles, font, urls, setPlanet, isExampleMenu
   const [selectedItemTitle, setSelectedItemTitle] = useState('Item title not found.');
 
   const enableContentViewer = (itemTitle) => {
-    //!checkForSpecialComponent(itemTitle) && 
-    setContentViewerOpen(true) && 
+    !checkForSpecialComponent(itemTitle) && setContentViewerOpen(true)
     setSelectedItemTitle(itemTitle)
   }
 
@@ -168,7 +167,7 @@ const ShuttleLaunch = ({ title, itemTitles, font, urls, setPlanet, isExampleMenu
             itemTitles={itemTitles}
             font={font}
             urls={urls}
-            enableContentViewer={enableContentViewer}
+            enableContentViewer={(x) => enableContentViewer(x)}
           />
         </motion.div>
         <div
@@ -198,7 +197,7 @@ const ShuttleLaunch = ({ title, itemTitles, font, urls, setPlanet, isExampleMenu
             </motion.span>
           </div>
         </div>
-        { contentViewerOpen ? <ContentViewer font={font} itemTitle={selectedItemTitle} setPlanet={setPlanet} setContentViewerOpen={setContentViewerOpen} isExampleMenuVisible={isExampleMenuVisible} setIsExampleMenuVisible={(x) => setIsExampleMenuVisible(x)}/> : null }
+        { contentViewerOpen ? <ContentViewer font={font} itemTitle={selectedItemTitle} setPlanet={() => setPlanet()} setContentViewerOpen={() => setContentViewerOpen()} isExampleMenuVisible={isExampleMenuVisible} setIsExampleMenuVisible={(x) => setIsExampleMenuVisible(x)}/> : null }
       </div>
     </AnimatePresence>
   );

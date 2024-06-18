@@ -31,7 +31,7 @@ const Guide = ({ requestLocation, setPlanet }) => {
 
   return (
     <>
-      <motion.div>
+      <motion.div style={{ display: 'flex', justifyContent: 'center', width: '100%', height: '100%', position: 'absolute', }}>
         <motion.div
           initial={{ opacity: 1 }}
           animate={{
@@ -47,7 +47,6 @@ const Guide = ({ requestLocation, setPlanet }) => {
             zIndex: "95",
             position: "fixed",
             bottom: "0px",
-            right: "55%",
           }}
         >
           <Astronaut
@@ -164,6 +163,9 @@ const Guide = ({ requestLocation, setPlanet }) => {
               >
                 <input className="searchbar" placeholder="Search for a Term"></input>
                 <br/>
+                <button className="purpleBtn" onClick={() => setIsGuideOpen(false)}>
+                  Tell me more about this part of the website, and how it works.
+                </button>
                 <button className="closeGuideBtn" onClick={() => setIsGuideOpen(false)}>
                   Close Guide
                 </button>
@@ -175,7 +177,7 @@ const Guide = ({ requestLocation, setPlanet }) => {
                 position: "absolute",
                 width: "100px",
                 height: "100px",
-                left: "45%",
+                left: "55%",
                 zIndex: "100",
               }}
             >

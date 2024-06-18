@@ -5,6 +5,7 @@ import { GeneralContext } from "../../contexts/generalContext";
 
 import ShuttleLaunch from "../../components/PlanetMenu/SelectionPresentations/ShuttleLaunch";
 import ExamplesMenu from "../../components/Examples/Menu";
+import KnowledgeTree from "../KnowledgeTree/KnowledgeTree";
 
 import ScreenSizePopup from "../Popups/ScreenSize";
 
@@ -54,31 +55,31 @@ const Planet = ({ position, planet, title, font, setPlanet }) => {
           position === 0
             ? "front"
             : position === 1
-            ? "frontLeft"
-            : position === 2
-            ? "left"
-            : position === 3
-            ? "backLeft"
-            : position === 4
-            ? "backRight"
-            : position === 5
-            ? "right"
-            : "frontRight"
+              ? "frontLeft"
+              : position === 2
+                ? "left"
+                : position === 3
+                  ? "backLeft"
+                  : position === 4
+                    ? "backRight"
+                    : position === 5
+                      ? "right"
+                      : "frontRight"
         }
         animate={
           position === 0
             ? "front"
             : position === 1
-            ? "frontLeft"
-            : position === 2
-            ? "left"
-            : position === 3
-            ? "backLeft"
-            : position === 4
-            ? "backRight"
-            : position === 5
-            ? "right"
-            : "frontRight"
+              ? "frontLeft"
+              : position === 2
+                ? "left"
+                : position === 3
+                  ? "backLeft"
+                  : position === 4
+                    ? "backRight"
+                    : position === 5
+                      ? "right"
+                      : "frontRight"
         }
         variants={variants}
         transition={{
@@ -181,6 +182,7 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
 
   const [isExampleMenuVisible, setIsExampleMenuVisible] = useState("hidden");
   const [isIntroductionOpen, setIsIntroductionOpen] = useState(false);
+  const [isKnowledgeTreeOpen, setIsKnowledgeTreeOpen] = useState(false);
 
   const [earthPos, setEarthPos] = useState(0);
   const [saturnPos, setSaturnPos] = useState(6);
@@ -224,19 +226,23 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
   };
 
   const checkForSpecialComponent = (title) => {
-    title === "Introduction"
-      ? setIsIntroductionOpen(true)
-      : setIsIntroductionOpen(false);
-    return title === "Introduction" ? true : false;
 
-    return title === "Society - the Boardgame" ? true : false;
+    title === "Introduction"
+      ? setIsIntroductionOpen(true) && alert('Introduction is open.')
+      : setIsIntroductionOpen(false);
+
+    title === "Cam's Skill Tree"
+      ? setIsKnowledgeTreeOpen(true)
+      : setIsKnowledgeTreeOpen(false)
+
+    return title === "Introduction" || title === "Cam's Skill Tree" || title === "Society - the Boardgame" ? true : false;
   };
 
   const learnTitles = [
     "Introduction",
     "A Brief History of Cam",
-    "Cam's Interests & Hobbies",
-    "Cam's Experience",
+    "Cam's Skill Tree",
+    "Cam's Interests & Experience",
   ];
   const toolsTitles = [
     "Calculators",
@@ -300,8 +306,8 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
               font="Marcellus SC"
               setPlanet={setSelectedPlanet}
               isExampleMenuVisible={isExampleMenuVisible}
-              setIsExampleMenuVisible={() => setIsExampleMenuVisible()}
-              checkForSpecialComponent={checkForSpecialComponent}
+              setIsExampleMenuVisible={(x) => setIsExampleMenuVisible(x)}
+              checkForSpecialComponent={(x) => checkForSpecialComponent(x)}
             />
           </motion.div>
         )}
@@ -317,6 +323,7 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
               setPlanet={setSelectedPlanet}
               isExampleMenuVisible={isExampleMenuVisible}
               setIsExampleMenuVisible={() => setIsExampleMenuVisible()}
+              checkForSpecialComponent={(x) => checkForSpecialComponent(x)}
             />
           </motion.div>
         )}
@@ -332,6 +339,7 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
               setPlanet={setSelectedPlanet}
               isExampleMenuVisible={isExampleMenuVisible}
               setIsExampleMenuVisible={() => setIsExampleMenuVisible()}
+              checkForSpecialComponent={() => checkForSpecialComponent()}
             />
           </motion.div>
         )}
@@ -347,6 +355,7 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
               setPlanet={setSelectedPlanet}
               isExampleMenuVisible={isExampleMenuVisible}
               setIsExampleMenuVisible={() => setIsExampleMenuVisible()}
+              checkForSpecialComponent={() => checkForSpecialComponent()}
             />
           </motion.div>
         )}
@@ -362,6 +371,7 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
               setPlanet={setSelectedPlanet}
               isExampleMenuVisible={isExampleMenuVisible}
               setIsExampleMenuVisible={() => setIsExampleMenuVisible()}
+              checkForSpecialComponent={() => checkForSpecialComponent()}
             />
           </motion.div>
         )}
@@ -377,6 +387,7 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
               setPlanet={setSelectedPlanet}
               isExampleMenuVisible={isExampleMenuVisible}
               setIsExampleMenuVisible={() => setIsExampleMenuVisible()}
+              checkForSpecialComponent={() => checkForSpecialComponent()}
             />
           </motion.div>
         )}
@@ -392,6 +403,7 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
               setPlanet={setSelectedPlanet}
               isExampleMenuVisible={isExampleMenuVisible}
               setIsExampleMenuVisible={() => setIsExampleMenuVisible()}
+              checkForSpecialComponent={() => checkForSpecialComponent()}
             />
           </motion.div>
         )}
@@ -406,30 +418,30 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
           justifyContent: 'center',
           alignItems: 'center',
         }}>
-        <motion.div
-          animate={{
-            rotate: [180, 0, 90, 0, 170, 0, 90, 0],
-          }}
-          transition={{
-            duration: 88,
-            repeat: "infinity",
-            repeatType: "loop",
-          }}
-          style={{
-            width: "14vw",
-            minWidth: '150px',
-            height: "14vw",
-            minHeight: '150px',
-            zIndex: "75",
-          }}
-        >
-          <Sun
-            style={{
-              width: "100%",
-              height: "100%",
+          <motion.div
+            animate={{
+              rotate: [180, 0, 90, 0, 170, 0, 90, 0],
             }}
-          />
-        </motion.div>
+            transition={{
+              duration: 88,
+              repeat: "infinity",
+              repeatType: "loop",
+            }}
+            style={{
+              width: "14vw",
+              minWidth: '150px',
+              height: "14vw",
+              minHeight: '150px',
+              zIndex: "75",
+            }}
+          >
+            <Sun
+              style={{
+                width: "100%",
+                height: "100%",
+              }}
+            />
+          </motion.div>
         </div>
         <motion.div
           drag="x"
@@ -440,8 +452,8 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
             info.offset.x > 30
               ? rotateLeft()
               : info.offset.x < -30
-              ? rotateRight()
-              : null
+                ? rotateRight()
+                : null
           }
         >
           <Planet
@@ -461,8 +473,8 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
             info.offset.x > 30
               ? rotateLeft()
               : info.offset.x < -30
-              ? rotateRight()
-              : null
+                ? rotateRight()
+                : null
           }
         >
           <Planet
@@ -482,8 +494,8 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
             info.offset.x > 30
               ? rotateLeft()
               : info.offset.x < -30
-              ? rotateRight()
-              : null
+                ? rotateRight()
+                : null
           }
         >
           <Planet
@@ -503,8 +515,8 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
             info.offset.x > 30
               ? rotateLeft()
               : info.offset.x < -30
-              ? rotateRight()
-              : null
+                ? rotateRight()
+                : null
           }
         >
           <Planet
@@ -524,8 +536,8 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
             info.offset.x > 30
               ? rotateLeft()
               : info.offset.x < -30
-              ? rotateRight()
-              : null
+                ? rotateRight()
+                : null
           }
         >
           <Planet
@@ -545,8 +557,8 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
             info.offset.x > 30
               ? rotateLeft()
               : info.offset.x < -30
-              ? rotateRight()
-              : null
+                ? rotateRight()
+                : null
           }
         >
           <Planet
@@ -566,8 +578,8 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
             info.offset.x > 30
               ? rotateLeft()
               : info.offset.x < -30
-              ? rotateRight()
-              : null
+                ? rotateRight()
+                : null
           }
         >
           <Planet
@@ -682,6 +694,10 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
       <ExamplesMenu
         isMenuVisible={isExampleMenuVisible}
         setIsMenuVisible={() => setIsExampleMenuVisible()}
+      />
+      <KnowledgeTree
+        isOpen={isKnowledgeTreeOpen}
+        setIsOpen={() => setIsKnowledgeTreeOpen()}
       />
       <ScreenSizePopup size={windowSize} />
       <motion.div
