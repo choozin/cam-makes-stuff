@@ -13,7 +13,7 @@ const Logo = () => {
         }}>
             <span style={{
 
-            }}>Cam's</span>
+            }}>Cam&apos;s</span>
             <span style={{
                 
             }}>Cosmic</span>
