@@ -1,8 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
 const Starfield = ({ numStars = 300, starScale = 1 }) => {
   const starfieldRef = useRef(null);
+
+  const [isRendered, setIsRendered] = useState(false);
 
   const colors = [
     "white",
@@ -19,7 +21,7 @@ const Starfield = ({ numStars = 300, starScale = 1 }) => {
     "white",
     "#F88",
     "#88F",
-    "#8F8",
+    "#BFB",
     "white",
     "white",
     "white",
@@ -38,8 +40,10 @@ const Starfield = ({ numStars = 300, starScale = 1 }) => {
   ];
 
   useEffect(() => {
+    if (!isRendered) {
     const starfield = starfieldRef.current;
     for (let i = 0; i < numStars; i++) {
+      let starColor = colors[Math.floor(Math.random() * colors.length)];
       const star = document.createElement("div");
       star.classList.add("star");
       star.style.top = `${Math.random() * 100}%`;
@@ -47,12 +51,14 @@ const Starfield = ({ numStars = 300, starScale = 1 }) => {
       const size = Math.random() * 1 + starScale;
       star.style.width = `${size}px`;
       star.style.height = `${size}px`;
-      star.style.backgroundColor =
-        colors[Math.floor(Math.random() * colors.length)];
+      star.style.backgroundColor = starColor;
       star.style.opacity = `${Math.random() * 50 + 50}%`;
       //star.style.zIndex = `100`;
       starfield.appendChild(star);
+
+      setIsRendered(true);
     }
+  }
   }, [numStars, colors, starScale]);
 
   return (

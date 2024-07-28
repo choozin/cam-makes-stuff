@@ -349,6 +349,7 @@ const ContentContainer = ({
                                       color: "#040",
                                       scale: 1.05,
                                     }}
+                                    onClick={button.buttonOnClick}
                                   >
                                     {button.buttonText}
                                   </motion.div>
@@ -419,11 +420,11 @@ const TitleContainer = ({ font, itemTitle }) => {
           height: "12vh",
           margin: "0 auto",
           marginTop: "16vh",
-          color: "#BB8",
+          color: "#DDD",
           fontFamily: font,
           fontSize: "1.2rem",
           textAlign: "center",
-          textShadow: "1px 1px #440, -1px -1px #FFB, -1px 1px #440",
+          textShadow: "1px 1px #080, -1px -1px #080, -1px 1px #040",
         }}
       >
         <h2>{itemTitle}</h2>
@@ -441,6 +442,8 @@ const ContentViewer = ({
   const { selectedExampleMenu, setSelectedExampleMenu } =
     useContext(MenuContext);
   const size = useWindowSize();
+
+  let tileColor = "#555";
 
   return (
     <div
@@ -475,10 +478,10 @@ const ContentViewer = ({
             maxWidth: "400px",
             height: "14vh",
             background: "url('/textures/brushed-alum.png')",
-            backgroundColor: "#A80",
+            backgroundColor: tileColor,
             marginTop: "10vh",
             borderTopLeftRadius: "3vw",
-            boxShadow: "inset 1vw 0 0vw rgba(96,96,0,0.2)",
+            boxShadow: "inset 1vw 0 0vw rgba(48,48,48,0.2)",
           }}
         >
           <div
@@ -516,7 +519,7 @@ const ContentViewer = ({
             maxWidth: "400px",
             height: "14vh",
             background: "url('/textures/brushed-alum.png')",
-            backgroundColor: "#A80",
+            backgroundColor: tileColor,
             marginTop: "10vh",
             borderTopRightRadius: "3vw",
             boxShadow: "inset -1vw 1vw 0vw rgba(255,255,255,0.2)",
@@ -540,8 +543,8 @@ const ContentViewer = ({
             maxWidth: "400px",
             height: "18vh",
             background: "url('/textures/brushed-alum.png')",
-            backgroundColor: "#A80",
-            boxShadow: "inset 1vw 0 0vw rgba(96,96,0,0.2)",
+            backgroundColor: tileColor,
+            boxShadow: "inset 1vw 0 0vw rgba(48,48,48,0.2)",
           }}
         >
           <LeftArm time="3.9" />
@@ -569,7 +572,7 @@ const ContentViewer = ({
             maxWidth: "400px",
             height: "18vh",
             background: "url('/textures/brushed-alum.png')",
-            backgroundColor: "#A80",
+            backgroundColor: tileColor,
             boxShadow: "inset -1vw 0 0vw rgba(255,255,255,0.2)",
           }}
         >
@@ -592,8 +595,8 @@ const ContentViewer = ({
             maxWidth: "400px",
             height: "18vh",
             background: "url('/textures/brushed-alum.png')",
-            backgroundColor: "#A80",
-            boxShadow: "inset 1vw 0 0vw rgba(96,96,0,0.2)",
+            backgroundColor: tileColor,
+            boxShadow: "inset 1vw 0 0vw rgba(48,48,48,0.2)",
           }}
         >
           <LeftArm time="3.8" />
@@ -621,7 +624,7 @@ const ContentViewer = ({
             maxWidth: "400px",
             height: "18vh",
             background: "url('/textures/brushed-alum.png')",
-            backgroundColor: "#A80",
+            backgroundColor: tileColor,
             boxShadow: "inset -1vw 0 0vw rgba(255,255,255,0.2)",
           }}
         >
@@ -645,8 +648,8 @@ const ContentViewer = ({
               maxWidth: "400px",
               height: "18vh",
               background: "url('/textures/brushed-alum.png')",
-              backgroundColor: "#A80",
-              boxShadow: "inset 1vw 0 0vw rgba(96,96,0,0.2)",
+              backgroundColor: tileColor,
+              boxShadow: "inset 1vw 0 0vw rgba(48,48,48,0.2)",
             }}
           >
             <LeftArm time="3.7" />
@@ -674,7 +677,7 @@ const ContentViewer = ({
               maxWidth: "400px",
               height: "18vh",
               background: "url('/textures/brushed-alum.png')",
-              backgroundColor: "#A80",
+              backgroundColor: tileColor,
               boxShadow: "inset -1vw 0 0vw rgba(255,255,255,0.2)",
             }}
           >
@@ -698,10 +701,10 @@ const ContentViewer = ({
             maxWidth: "400px",
             height: "12vh",
             background: "url('/textures/brushed-alum.png')",
-            backgroundColor: "#A80",
+            backgroundColor: tileColor,
             marginBottom: "6vh",
             borderBottomLeftRadius: "3vw",
-            boxShadow: "inset 1vw -1vw 0 rgba(96,96,0,0.2)",
+            boxShadow: "inset 1vw -1vw 0 rgba(48,48,48,0.2)",
             zIndex: 96,
           }}
         >
@@ -753,7 +756,7 @@ const ContentViewer = ({
             maxWidth: "400px",
             height: "12vh",
             background: "url('/textures/brushed-alum.png')",
-            backgroundColor: "#A80",
+            backgroundColor: tileColor,
             marginBottom: "6vh",
             borderBottomRightRadius: "3vw",
             boxShadow: "inset -1vw 0 0 rgba(255,255,255,0.2)",
@@ -765,7 +768,7 @@ const ContentViewer = ({
               width: "100%",
               height: "100%",
               borderBottomRightRadius: "3vw",
-              boxShadow: "inset 0vw -1vw 0vw rgba(96,96,0,0.2)",
+              boxShadow: "inset 0vw -1vw 0vw rgba(48,48,48,0.2)",
             }}
           >
             <RightArm time="3.6" />

@@ -2,46 +2,60 @@
 // but set sectionIsNewDropdown to false to prevent a title and dropdown functionality. Next section will continue under original dropdown
 const content = [
     {
-        title: 'A Breif History of Cam',
+        title: 'A Brief History of Cam',
         content: [
-            "",
+            "Cam first appeared in the late 20th century in a medium-sized city in Southern Ontario, Canada. The child of two parents, Cam grew to have many varied interests and passions both in school and beyond. Always a scholar and experience-seeker, Cam has worked in and with a variety of industries and hopes to continue building on his diverse experiences. If you'd like to know more about Cam, Cam invites you to continue reading.",
         ],
         imagepath: "",
         sections: [
             {
-                sectionTitle: 'What is ?',
+                sectionTitle: 'Cam In His Youth',
                 sectionIsNewDropdown: true,
                 sectionContent: [
-                    "",
+                    "His teenage years were filled with the typical trials and tribulations faced by any eager-eyed adolecent, but also featured many proud accomplishments. Cam's high school years began with a joint-business venture in which he and a friend built a video game review website known as PGN. As luck should have it, one particular review Cam wrote found its way on to the front page of a game's official website, which drove PGN's userbase up by several orders of magnitude. Thereafter, PGN had gained enough legitimacy to entice game publishers to send free physical copies of new games to Cam and other writers on the website for review - a dream for any young gamer.",
+                    "In his later high school years, Cam - an avid aviation enthusiest - found himself doing a semester of co-op at a local flight school. Soon after beginning the internship, he began taking flight lessons himself. Showing natural skill and an abundance of passion, Cam was by far the youngest person in his class and would go on to attain his Private Pilot's Permit before his Graduated Driving Permit, meaning Cam was flying planes alone before he was able to drive alone - another childhood dream checked off.",
+
                 ],
                 sectionButtons: null,
             },
             {
-                sectionTitle: 'Question',
+                sectionTitle: 'Early Adulthood',
                 sectionIsNewDropdown: true,
                 sectionContent: [
-                    "",
+                    "Cam went on to attend a mid-rate university in a terribly unexciting city a few hours away from his hometown. Cam picked this school because his good friends were attending it. That's right, Cam was an idiot. But Cam didn't know what he wanted to do with his life, but he liked clouds and stuff, so he jumped in to a degree in meteorology. These were Cam's confusing years, as everything interested him - but nothing enough so to make a career path out of. He switched his major four times, and eventually graduated with an urban planning degree. After graduation, naturally he went on to work for a major multi-national military contractor where he worked in a department responsible for procuring weapons systems and situational awareness equipment for combat vehicles. Cam hated working 9-5 in an office, and after a corporate contract loss led to a fortuitous layoff, Cam found himself again asking what he really wanted to do for the rest of his life.",
+                    "After considerable introspection, Cam would eventually come to the realization that what he loves to do is create things. Reflecting on his years running PGN, Cam decided that a skill he'd always wanted to develop was coding, and so he enrolled in a local college in his hometown and began studying.",
+
                 ],
                 sectionButtons: null,
             },
             {
-                sectionTitle: 'Question',
+                sectionTitle: 'First Steps...',
                 sectionIsNewDropdown: true,
                 sectionContent: [
-                    "",
+                    "By the end of his college program Cam had gained a solid foundational understanding of programming, though the extent of his skills were limited to vanilla JavaScript/HTML/CSS & WordPress development. Cam would take a job with a local firm after graduation, and found himself in the role of 'SEO Specialist' and 'Company Representative', in which he would attend meetings with other businesses in an effort to rout out more sales. While interesting for a time, this was not what Cam had dreamed of doing.",
                 ],
                 sectionButtons: null
             },
             {
-                sectionTitle: 'Question?',
+                sectionTitle: 'Next Steps...',
                 sectionIsNewDropdown: true,
                 sectionContent: [
-                    "",
+                    "Cam next turned his attention to freelancing. He knew that if he wanted to create new and interesting products through code he would need to upgrade his skills and venture out on his own. Over several years, Cam built up his coding abilities through online courses and careful study of documentation, and taking freelance jobs wherever he could find them. Finally, after years of skill-building and side-hustles Cam would find himself with a skillset that would enable him to make the products he'd always wanted to - products like this very website, in which customization & fun can really stand out.",
+                ],
+                sectionButtons: null
+            },
+            {
+                sectionTitle: '...Into The Present.',
+                sectionIsNewDropdown: true,
+                sectionContent: [
+                    "During the COVID years, Cam & his partner did some soul searching and decided that what was really missing from life was travel. They knew they loved road trips, camping and adventure, and came up with a plan to make a life full of that. 'By golly, there's a lot of world out there to see, and we need to see it!', they said (in an olde timey accent, obviously).  So they moved out of their apartment, sold a bunch of their stuff and bought a truck camper, a Starlink internet satellite dish, and built a solar battery setup to power their whole life. Cam & his partner now live on the road for most of the year, visiting as many national parks & major cities as they possibly can, finding interesting and varied work opportunities along the way.",
+                    "And so Cam is living off-grid and on-the-road, trying to see and do as much as possible, freelancing all along the way. Right now, Cam is sitting in his camper, probably by a beautiful beach, or aside an epic hiking trail, or adjacent a famous food truck in an exotic locale. He's still trying to live the dream, and he needs gas money to get to his next destination. And for the record, Cam also feels quite strange to have written this in the third person. Cam doesn't normally do this. Cam sorry.",
+                    "Anywhoo, what are you waiting for? Why not help Cam keep the adventure rolling by hiring him to create the unique digital product your business or organization needs? Cam thanks you in advance!",
                 ],
                 sectionButtons: [
                     {
-                        buttonText: 'More About Pricing',
-                        buttonOnClick: null,
+                        buttonText: 'More About Cam',
+                        buttonOnClick: () => { alert('Okay, thats enough. Why dont you ask Cam to be your friend already?') },
                         buttonSwitchToContentTitle: null,
                         buttonURL: null,
                         buttonColor: null,
@@ -940,7 +954,7 @@ const content = [
                 subSectionContent: [
                     "ReactJS is like having a magic wand for speed. It makes your website feel super fast because it only updates the parts that need it, giving users a smooth and enjoyable experience. It's like having a speedy sports car instead of a slow-moving train.",
                 ],
-            },{
+            }, {
                 subSectionTitle: "User-Friendly and Interactive",
                 subSectionContent: [
                     "ReactJS ensures that your website is not just a static page but an interactive and user-friendly space. It's like turning your website into a friendly guide, making visitors feel welcome and engaged.",
@@ -957,6 +971,39 @@ const content = [
                 subSectionContent: [
                     "ReactJS is backed by a huge community of developers worldwide. It's like having a big family ready to help with anything. If there's ever a question or a new idea, there's a community out there supporting us.",
                 ],
+            },
+        ]
+    },
+    {
+        title: 'Website Upgrades',
+        content: [
+            "Is your website ready for a makeover? Whether you're running a WordPress blog, a Shopify store, or a traditional HTML/CSS based-site, my innovative website upgrades are here to elevate your online presence to new heights. Don’t settle for a stagnant online presence. Let’s turn your website into a powerhouse of innovation and engagement.",
+            "Enhanced Functionality: Add powerful features and seamless integrations to your site. From dynamic forms and interactive maps to real-time analytics and social media feeds, JavaScript plugins bring advanced functionality to your fingertips.",
+            "Improved User Experience: Delight your visitors with a smoother, faster, and more engaging experience. Our upgrades optimize your site’s performance, reduce load times, and ensure a mobile-friendly interface that keeps users coming back for more.",
+            "Boosted Conversions: Turn browsers into buyers with strategic enhancements. Implementing features like interactive product displays, personalized recommendations, and streamlined checkout processes can significantly increase your conversion rates and boost sales.",
+            "Tailored Solutions: No two websites are the same, which is why our upgrades are fully customizable. Whether you need a bespoke JavaScript plugin, a tailored WordPress widget, or a unique Shopify add-on, we’ll create a solution that perfectly fits your needs and goals.",
+            "Future-Proof Your Site: Stay ahead of the competition with the latest technologies and trends. Upgrades ensure your website is equipped to handle future growth and evolving industry standards, keeping your business at the forefront of innovation.",
+        ],
+        imagepath: "",
+        sections: [
+            
+        ]
+    },
+    {
+        title: 'Full Sites & eCommerce',
+        content: [
+            "While I generally try to focus on smaller, purpose-specific projects, I will occasionally build a full-scale website - particularly if the end product is simple or the organization is providing a public service.",
+            "e-Commerce websites are by their nature inherently large, with not only many different pages being required, but also the addition of payment gateways, security/authentication, and a backend for inventory updateds. While I do enjoy building e-Commerce websites (including through Wordpress or Shopify), these are projects that tend to take many months or over a year, and can be very expensive to develop."
+        ],
+        imagepath: "",
+        sections: [
+            {
+                sectionTitle: 'Will Cam make larger websites or e-Commerce websites from scratch?',
+                sectionIsNewDropdown: true,
+                sectionContent: [
+                    "Yes, but be aware that depending on the scale and scope of the project I may be required to sub-contract some elements of the project, and regular payments will be required throughout the development process, which may take quite some time." ,
+                ],
+                sectionButtons: null,
             },
         ]
     },
@@ -990,6 +1037,122 @@ const content = [
                 sectionIsNewDropdown: true,
                 sectionContent: [
                     "Any website that involves more than 3 pages is probably getting into big territory, but talk to be and let's discuss it.",
+                ],
+                sectionButtons: null,
+            },
+        ]
+    },
+    {
+        title: 'What does it cost to hire Cam?',
+        content: [
+            "It completely depends on the scope of your project. Typically I aim for about $50 per hour, or $1 per line of code. This price will fluctuate depending on the complexity or difficulty of the project, and typically I try not to charge for time spent learning a new concept when required.",
+            "A simple app that does some basic, on-the-fly calculations or quickly accesses a database and provides some real-time information may only cost $300-500, and a basic landing page providing visitors with some data and some fun graphics or animations could run the same. Adding more advanced features can quickly bring the bill up over $1000 toward $2000. As you approach full website functionality or significant complexities such as a custom eCommerce platform the price can easily reach $5000.",
+            "Please contact me any time for more information on pricing, and I'm always happy to break down the costs for your specific project so you can understand where and why the cost is what it is.",
+        ],
+        imagepath: "",
+        sections: [
+            
+        ]
+    },
+    {
+        title: 'How long do projects take?',
+        content: [
+            "The timeline for project completion can vary quite a bit depending on the size and complexity of the project. For a small app, it could take as little as a week to get everything up and running. On the other hand, larger, more complex projects can take over six months to complete.",
+            "In general, I aim to finish most projects within 1-2 months. This timeline allows for thorough planning, development, testing, and any necessary revisions to ensure the final product meets all your requirements and expectations. Of course, the exact timeline can vary, but I always strive to deliver high-quality work as efficiently as possible. Let's discuss your specific needs and come up with a timeline that works best for your project!"
+        ],
+        imagepath: "",
+        sections: [
+        ]
+    },
+    {
+        title: "What is Cam's 'Stack'?",
+        content: [
+            "My favourite stack to work with is the 'JAM Stack. I primarily work with the JAMstack, which stands for JavaScript, APIs, and Markup. This modern approach focuses on performance, security, and scalability. Using JAMstack with Next.js, a React-based framework, allows me to build lightning-fast websites. Next.js is fantastic because it supports static site generation and server-side rendering, which means your site can load incredibly quickly and handle dynamic content efficiently. Plus, it allows for easy integration with various backend services through APIs.",
+            "In addition to JAMstack, I'm also experienced with the classic LAMP stack, which stands for Linux, Apache, MySQL, and PHP. This setup is reliable and time-tested, making it great for traditional web applications. It's known for its stability and security, which are crucial for any business.",
+            "I also work with the MERN stack, which includes MongoDB, Express.js, React, and Node.js. This stack is all about full-stack JavaScript development, allowing for highly interactive and dynamic web applications. It's perfect for projects that require real-time data and seamless user experiences - however, in most cases I find a JAM stack is the better approach.",
+            "So, whether you're looking for a modern, high-performance solution with JAMstack and Next.js, a stable and secure application with LAMP, or a dynamic and interactive project with MERN, I've got the expertise to bring your vision to life. Let's build something amazing together!",
+        ],
+        imagepath: "",
+        sections: [
+        ]
+    },
+    {
+        title: 'Do I need to continue to pay after a project is completed?',
+        content: [
+            "Only in certain situations, like when I'm providing hosting for a web page or database. In all cases, my prices will be among the most competetive in the industry because I use cloud infrastructure from major operators like Google and Amazon which often offers pennies-to-the-dollar value compared to classic server architecture.",
+            "If the project is simply being added to your existing website or will be hosted on your servers then there will be no recurring costs.",
+            "In some cases, clients may be interested in having me maintain the website or make regular updates. This can come with a small, quarter-annual fee which will be negotiated based on your needs. In most cases, clients can avoid this recurring expense by paying a bit more up-front to create an administrative backend componenet which will allow the client to make these modifications themselves without using code.",
+            "There may also be cases where a project requires accessing 3rd-party data (such as advanced weather data, supplier inventory data, proprietary mapping data, etc.) which requires paying the data supplier a fee. In these cases you will likely be billed directly by the supplier for their data, and I will not be involved at all. If you prefer I be involved, this will likely involved some recurring cost that will include my fees for maintenance."
+        ],
+        imagepath: "",
+        sections: [
+            
+        ]
+    },
+    {
+        title: 'Bigger Websites',
+        content: [
+            "At the moment I'm sorry to say I'm not offering to build any bigger websites, as I've got too many other projects and aspirations to take on anything that requires more than a couple months of my time at once.",
+            "Feel free to send me an email though if you've got an interesting project or proposal you'd like to talk about!"
+        ],
+        imagepath: "",
+        sections: [
+            {
+                sectionTitle: 'What does big constitute?',
+                sectionIsNewDropdown: true,
+                sectionContent: [
+                    "Any website that involves more than 3 pages is probably getting into big territory, but talk to be and let's discuss it.",
+                ],
+                sectionButtons: null,
+            },
+        ]
+    },
+    {
+        title: 'Society - the Boardgame',
+        content: [
+            "More coming soon..",
+        ],
+        imagepath: "",
+        sections: [
+            {
+                sectionTitle: 'What is ?',
+                sectionIsNewDropdown: true,
+                sectionContent: [
+                    "Coming soon to a cartoony space-themed website near you!",
+                ],
+                sectionButtons: null,
+            },
+        ]
+    },
+    {
+        title: 'Trip Blog',
+        content: [
+            "More coming soon..",
+        ],
+        imagepath: "",
+        sections: [
+            {
+                sectionTitle: 'What is ?',
+                sectionIsNewDropdown: true,
+                sectionContent: [
+                    "Coming soon to a cartoony space-themed website near you!",
+                ],
+                sectionButtons: null,
+            },
+        ]
+    },
+    {
+        title: 'Upcoming Projects',
+        content: [
+            "More coming soon..",
+        ],
+        imagepath: "",
+        sections: [
+            {
+                sectionTitle: 'What is ?',
+                sectionIsNewDropdown: true,
+                sectionContent: [
+                    "Coming soon to a cartoony space-themed website near you!",
                 ],
                 sectionButtons: null,
             },

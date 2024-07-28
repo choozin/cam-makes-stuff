@@ -312,7 +312,7 @@ const KnowledgeTree = ({ isOpen, setIsOpen }) => {
                                     y1={star.y}
                                     x2={starPositions[originId - 1].x}
                                     y2={starPositions[originId - 1].y}
-                                    stroke={star.title === focusedStar ? "red" : starPositions[originId - 1].title === focusedStar ? "yellow" : "white"}
+                                    stroke={star.title === focusedStar ? "yellow" : starPositions[originId - 1].title === focusedStar ? "#4F4" : "white"}
                                     strokeWidth={(star.title === focusedStar || starPositions[originId - 1].title === focusedStar) ? "1.5" : "1"}
                                 />
                             )

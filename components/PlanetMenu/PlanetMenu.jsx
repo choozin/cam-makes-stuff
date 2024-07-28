@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from "react";
+import { useRouter } from "next/router";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { GeneralContext } from "../../contexts/generalContext";
@@ -45,7 +46,7 @@ const Planet = ({ position, planet, title, font, setPlanet }) => {
         justifyContent: "center",
         alignItems: "center",
         position: "absolute",
-        ZIndex: "10",
+        ZIndex: "90",
         overflow: "hidden",
       }}
       onClick={() => setPlanet(planet)}
@@ -176,13 +177,9 @@ const Planet = ({ position, planet, title, font, setPlanet }) => {
   );
 };
 
-const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
+const PlanetMenu = ({ selectedPlanet, setSelectedPlanet, checkForSpecialComponent, isExampleMenuVisible, setIsExampleMenuVisible, isIntroductionOpen, setIsIntroductionOpen, isKnowledgeTreeOpen, setIsKnowledgeTreeOpen }) => {
   const { term, setTerm, updateTerm } = useContext(GeneralContext);
   const windowSize = useWindowSize();
-
-  const [isExampleMenuVisible, setIsExampleMenuVisible] = useState("hidden");
-  const [isIntroductionOpen, setIsIntroductionOpen] = useState(false);
-  const [isKnowledgeTreeOpen, setIsKnowledgeTreeOpen] = useState(false);
 
   const [earthPos, setEarthPos] = useState(0);
   const [saturnPos, setSaturnPos] = useState(6);
@@ -193,6 +190,7 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
   const [spaceStationPos, setSpaceStationPos] = useState(1);
 
   const [menuMotion, setMenuMotion] = useState(null);
+  
 
   useEffect(() => {
     if (menuMotion !== null) {
@@ -225,19 +223,6 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
     setMenuMotion("left");
   };
 
-  const checkForSpecialComponent = (title) => {
-
-    title === "Introduction"
-      ? setIsIntroductionOpen(true) && alert('Introduction is open.')
-      : setIsIntroductionOpen(false);
-
-    title === "Cam's Skill Tree"
-      ? setIsKnowledgeTreeOpen(true)
-      : setIsKnowledgeTreeOpen(false)
-
-    return title === "Introduction" || title === "Cam's Skill Tree" || title === "Society - the Boardgame" ? true : false;
-  };
-
   const learnTitles = [
     "Introduction",
     "A Brief History of Cam",
@@ -247,7 +232,7 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
   const toolsTitles = [
     "Calculators",
     "Quote Generators",
-    "Questionnaires",
+    "Surveys & Questionnaires",
     "Data Processing & Charting",
     "Dynamic Forms & Paperwork Expediting",
   ];
@@ -272,11 +257,11 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
     "CMS & Page Builders",
     "Hosting & Site Management",
   ];
-  const techTitles = [
-    "NextJS & Jamstack",
-    "ReactJS",
-    "Realtime NoSQL Databases",
-    "Animations & Interactivity",
+  const faqTitles = [
+    "What does it cost to hire Cam?",
+    "How long do projects take?",
+    "What is Cam's 'Stack'?",
+    "Do I need to continue to pay after a project is completed?",
   ];
 
   const buttonStyle = {
@@ -307,7 +292,7 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
               setPlanet={setSelectedPlanet}
               isExampleMenuVisible={isExampleMenuVisible}
               setIsExampleMenuVisible={(x) => setIsExampleMenuVisible(x)}
-              checkForSpecialComponent={(x) => checkForSpecialComponent(x)}
+              checkForSpecialComponent={checkForSpecialComponent}
             />
           </motion.div>
         )}
@@ -323,7 +308,7 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
               setPlanet={setSelectedPlanet}
               isExampleMenuVisible={isExampleMenuVisible}
               setIsExampleMenuVisible={() => setIsExampleMenuVisible()}
-              checkForSpecialComponent={(x) => checkForSpecialComponent(x)}
+              checkForSpecialComponent={checkForSpecialComponent}
             />
           </motion.div>
         )}
@@ -333,13 +318,13 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
             transition={{ delay: 0.25, duration: 1 }}
           >
             <ShuttleLaunch
-              title="Contact Cam"
-              itemTitles={contactTitles}
+              title="FAQ"
+              itemTitles={faqTitles}
               font="Special Elite"
               setPlanet={setSelectedPlanet}
               isExampleMenuVisible={isExampleMenuVisible}
               setIsExampleMenuVisible={() => setIsExampleMenuVisible()}
-              checkForSpecialComponent={() => checkForSpecialComponent()}
+              checkForSpecialComponent={checkForSpecialComponent}
             />
           </motion.div>
         )}
@@ -355,7 +340,7 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
               setPlanet={setSelectedPlanet}
               isExampleMenuVisible={isExampleMenuVisible}
               setIsExampleMenuVisible={() => setIsExampleMenuVisible()}
-              checkForSpecialComponent={() => checkForSpecialComponent()}
+              checkForSpecialComponent={checkForSpecialComponent}
             />
           </motion.div>
         )}
@@ -371,7 +356,7 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
               setPlanet={setSelectedPlanet}
               isExampleMenuVisible={isExampleMenuVisible}
               setIsExampleMenuVisible={() => setIsExampleMenuVisible()}
-              checkForSpecialComponent={() => checkForSpecialComponent()}
+              checkForSpecialComponent={checkForSpecialComponent}
             />
           </motion.div>
         )}
@@ -387,7 +372,7 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
               setPlanet={setSelectedPlanet}
               isExampleMenuVisible={isExampleMenuVisible}
               setIsExampleMenuVisible={() => setIsExampleMenuVisible()}
-              checkForSpecialComponent={() => checkForSpecialComponent()}
+              checkForSpecialComponent={checkForSpecialComponent}
             />
           </motion.div>
         )}
@@ -397,13 +382,13 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
             transition={{ delay: 0.25, duration: 1 }}
           >
             <ShuttleLaunch
-              title="Technologies"
-              itemTitles={techTitles}
+              title="Contact Cam"
+              itemTitles={contactTitles}
               font="Silkscreen"
               setPlanet={setSelectedPlanet}
               isExampleMenuVisible={isExampleMenuVisible}
               setIsExampleMenuVisible={() => setIsExampleMenuVisible()}
-              checkForSpecialComponent={() => checkForSpecialComponent()}
+              checkForSpecialComponent={checkForSpecialComponent}
             />
           </motion.div>
         )}
@@ -501,7 +486,7 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
           <Planet
             planet="Moon"
             position={moonPos}
-            title="Contact Cam"
+            title="FAQ"
             font="Special Elite"
             setPlanet={setSelectedPlanet}
           />
@@ -585,7 +570,7 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
           <Planet
             planet="SpaceStation"
             position={spaceStationPos}
-            title="Technologies"
+            title="Contact Cam"
             font="Silkscreen"
             setPlanet={setSelectedPlanet}
           />
@@ -702,13 +687,13 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
       <ScreenSizePopup size={windowSize} />
       <motion.div
         animate={{
-          x: ["-4%", "4%"],
+          x: ["-8%", "8%"],
         }}
         transition={{
-          duration: 180,
+          duration: 128,
           repeat: "Infinity",
           repeatType: "reverse",
-          ease: [0.8, 0, 0.2, 1],
+          ease: [1, 1, 1, 1],
         }}
         style={{
           zIndex: 1,
@@ -718,17 +703,17 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
           position: "absolute",
         }}
       >
-        <Starfield numStars={windowSize.width / 7} starScale={1} />
+        <Starfield numStars={windowSize.width / 1} starScale={1} />
       </motion.div>
       <motion.div
         animate={{
-          x: ["-7%", "7%"],
+          x: ["-14%", "14%"],
         }}
         transition={{
-          duration: 180,
+          duration: 128,
           repeat: "Infinity",
           repeatType: "reverse",
-          ease: [0.8, 0, 0.2, 1],
+          ease: [1, 1, 1, 1],
         }}
         style={{
           zIndex: 1,
@@ -738,17 +723,17 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
           position: "absolute",
         }}
       >
-        <Starfield numStars={windowSize.width / 8} starScale={2} />
+        <Starfield numStars={windowSize.width / 4} starScale={2} />
       </motion.div>
       <motion.div
         animate={{
           x: ["-12%", "12%"],
         }}
         transition={{
-          duration: 180,
+          duration: 128,
           repeat: "Infinity",
           repeatType: "reverse",
-          ease: [0.8, 0, 0.2, 1],
+          ease: [1, 1, 1, 1],
         }}
         style={{
           zIndex: 1,
@@ -765,10 +750,10 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
           x: ["-17%", "17%"],
         }}
         transition={{
-          duration: 180,
+          duration: 128,
           repeat: "Infinity",
           repeatType: "reverse",
-          ease: [0.8, 0, 0.2, 1],
+          ease: [1, 1, 1, 1],
         }}
         style={{
           zIndex: 1,
@@ -782,13 +767,13 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
       </motion.div>
       <motion.div
         animate={{
-          x: ["-25%", "25%"],
+          x: ["-23%", "23%"],
         }}
         transition={{
-          duration: 180,
+          duration: 128,
           repeat: "Infinity",
           repeatType: "reverse",
-          ease: [0.8, 0, 0.2, 1],
+          ease: [1, 1, 1, 1],
         }}
         style={{
           zIndex: 1,
@@ -799,6 +784,46 @@ const PlanetMenu = ({ selectedPlanet, setSelectedPlanet }) => {
         }}
       >
         <Starfield numStars={windowSize.width / 16} starScale={3} />
+      </motion.div>
+      <motion.div
+        animate={{
+          x: ["-32%", "32%"],
+        }}
+        transition={{
+          duration: 128,
+          repeat: "Infinity",
+          repeatType: "reverse",
+          ease: [1, 1, 1, 1],
+        }}
+        style={{
+          zIndex: 1,
+          width: "200%",
+          height: "100%",
+          left: "-50%",
+          position: "absolute",
+        }}
+      >
+        <Starfield numStars={windowSize.width / 16} starScale={4} />
+      </motion.div>
+      <motion.div
+        animate={{
+          x: ["-40%", "40%"],
+        }}
+        transition={{
+          duration: 128,
+          repeat: "Infinity",
+          repeatType: "reverse",
+          ease: [1, 1, 1, 1],
+        }}
+        style={{
+          zIndex: 1,
+          width: "200%",
+          height: "100%",
+          left: "-50%",
+          position: "absolute",
+        }}
+      >
+        <Starfield numStars={windowSize.width / 64} starScale={6} />
       </motion.div>
     </div>
   );

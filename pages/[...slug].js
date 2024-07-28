@@ -1,18 +1,15 @@
-import '../styles/globals.css'
-
 import { MenuProvider } from "../contexts/MenuContext";
 import { GeneralProvider } from "../contexts/generalContext";
 
-function MyApp({ Component, pageProps }) {
+import Container from '../components/Container/Container'
+
+export default function CatchAllPage() {
   return (
 
     <GeneralProvider>
       <MenuProvider>
-        <Component {...pageProps} />
-
+        <Container />
       </MenuProvider>
     </GeneralProvider>
-  )
+  );
 }
-
-export default MyApp
